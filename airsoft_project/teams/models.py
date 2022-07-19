@@ -13,6 +13,7 @@ class Player(models.Model):
     games_played = models.IntegerField()
     player_from = models.CharField('Town where player is from')
     date_of_birth = models.DateField()
+    team_leader = models.BooleanField()
         
     class Meta:
         verbose_name = _("Player")
