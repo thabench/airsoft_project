@@ -16,9 +16,6 @@ class Organizer(models.Model):
 
     def __str__(self):
         return self.name
-
-    def get_absolute_url(self):
-        return reverse("organizer_detail", kwargs={"pk": self.pk})
     
     
 class Event(models.Model):
@@ -27,6 +24,7 @@ class Event(models.Model):
     field = models.OneToOneField('Field', on_delete=models.SET_NULL, null=True)
     price = models.FloatField("Price")
     max_players = models.IntegerField("Maximum player number")
+    registered_players  = models.IntegerField("Registered player number")
     created_on = models.DateTimeField(auto_now_add=True)
     
     class Meta:
@@ -42,7 +40,7 @@ class Event(models.Model):
     
 class Field(models.Model):
     name = models.CharField('Name of the game field',  max_length=150)
-    location = models.CharField('location coordinates')
+    location = models.CharField('Location coordinates')
     field_map = models.ImageField('Image of the map', upload_to='maps', null=True)
     
     class Meta:
@@ -51,6 +49,3 @@ class Field(models.Model):
 
     def __str__(self):
         return self.name
-
-    def get_absolute_url(self):
-        return reverse("field_detail", kwargs={"pk": self.pk})
