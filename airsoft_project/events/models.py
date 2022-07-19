@@ -40,7 +40,7 @@ class Event(models.Model):
     
 class Field(models.Model):
     name = models.CharField('Name of the game field',  max_length=150)
-    location = models.CharField('Location coordinates')
+    location = models.CharField('Location coordinates', max_length=50)
     field_map = models.ImageField('Image of the map', upload_to='maps', null=True)
     
     class Meta:

@@ -1,0 +1,10 @@
+<h1>Player list</h1>
+{% if players %}
+<div>
+    {% for player in players %}
+    <div> {{ player.n_name }} </div>
+    {% endfor %}
+</div>
+{% else %}
+<div> No players yet </div>
+{% endif %}

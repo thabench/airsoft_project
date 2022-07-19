@@ -9,9 +9,9 @@ from django.utils.translation import gettext_lazy as _
 class Player(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     n_name = models.CharField('Nickname of the player', max_length=150)
-    team = models.OneToOneField("Team", on_delete=models.SET_NULL, default='No team')
+    team = models.OneToOneField("Team", on_delete=models.SET_NULL, null=True)
     games_played = models.IntegerField()
-    player_from = models.CharField('Town where player is from')
+    player_from = models.CharField('Town where player is from', max_length=150)
     date_of_birth = models.DateField()
     team_leader = models.BooleanField()
         
@@ -27,7 +27,7 @@ class Team(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unique player ID')
     name = models.CharField('Name of the Team', max_length=150)
     contacts = models.CharField('contacts', max_length=150)
-    players = models.ForeignKey("Player", on_delete=models.SET_NULL, null=True, blank=True)
+    players = models.ForeignKey("Player", related_name='players', on_delete=models.SET_NULL, null=True, blank=True)
         
     class Meta:
         verbose_name = _("Team")
