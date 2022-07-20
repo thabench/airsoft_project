@@ -1,0 +1,12 @@
+<h1>Event list</h1>
+{% if events %}
+<div>
+    {% for event in events %}
+    <div> {{ event.name }} {{ event.date}} </div>
+    <div> {{ event.field }}
+    <hr>
+    {% endfor %}
+</div>
+{% else %}
+<div> No players yet </div>
+{% endif %}
