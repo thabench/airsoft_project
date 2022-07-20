@@ -1,0 +1,11 @@
+<h1>Field list</h1>
+{% if fields %}
+<div>
+    {% for field in fields %}
+    <div> {{ field.name }} {{ field.location}} </div>
+    <hr>
+    {% endfor %}
+</div>
+{% else %}
+<div> No fields yet </div>
+{% endif %}

@@ -14,3 +14,9 @@ class EventListView(generic.ListView):
     model = Event
     context_object_name = 'events'
     template_name = 'event_list.html'
+    
+
+class FieldListView(generic.ListView):
+    model = Field
+    context_object_name = 'fields'
+    template_name = 'field_list.html'
