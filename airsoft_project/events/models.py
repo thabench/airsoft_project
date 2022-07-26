@@ -1,12 +1,15 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
+from tinymce.models import HTMLField
 
 # Create your models here.
 
 class Organizer(models.Model):
     name = models.CharField('Name of the organizer', max_length=150)
+    email = models.EmailField('Email of organizer', max_length=150, null=True)
     contacts = models.CharField('Address and contacts', max_length=150)
+    description = HTMLField(null=True)
     events = models.ForeignKey('Event', related_name='event', on_delete=models.SET_NULL, null=True, blank=True)
     fields = models.ForeignKey('Field', related_name='field', on_delete=models.SET_NULL, null=True, blank=True)
         
@@ -21,7 +24,9 @@ class Organizer(models.Model):
 class Event(models.Model):
     name = models.CharField('Name of the event',  max_length=150)
     date = models.DateTimeField('Date of event', null=True, blank=True)
+    organizer = models.OneToOneField("Organizer", on_delete=models.SET_NULL, null=True)
     field = models.OneToOneField('Field', on_delete=models.SET_NULL, null=True)
+    description = HTMLField(null=True)
     price = models.FloatField("Price")
     max_players = models.IntegerField("Maximum player number")
     registered_players  = models.IntegerField("Registered player number")
@@ -40,7 +45,9 @@ class Event(models.Model):
     
 class Field(models.Model):
     name = models.CharField('Name of the game field',  max_length=150)
-    location = models.CharField('Location coordinates', max_length=50)
+    location_long = models.CharField('Location longitude', max_length=50, null=True)
+    location_lat = models.CharField('Location latitude', max_length=50, null=True)
+    description = HTMLField(null=True)
     field_map = models.ImageField('Image of the map', upload_to='events/static/maps', null=True)
     
     class Meta:
