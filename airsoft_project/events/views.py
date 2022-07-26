@@ -26,3 +26,8 @@ class OrganizerListView(generic.ListView):
     model = Organizer
     context_object_name = 'organizers'
     template_name = 'organizer_list.html'
+    
+
+class EventDetailView(generic.DetailView):
+    model = Event
+    template_name = 'event_detail.html'

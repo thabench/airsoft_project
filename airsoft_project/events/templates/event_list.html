@@ -6,8 +6,10 @@
 {% if events %}
 <div>
     {% for event in events %}
-    <div> {{ event.name }} {{ event.date}} </div>
+    
+    <a href={{ event.id }} <div> {{ event.name }} {{ event.date|date:"Y-m-d" }} </div></a>
     <div> {{ event.field }}
+    
     <hr>
     {% endfor %}
 </div>

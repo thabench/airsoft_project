@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ event.name }}</h1>
+    <small>{{ event.created_on|date:"Y-m-d" }}</small>
+    <br>
+    <br>
+    <div><strong>Date:</strong> {{ event.date|date:"Y-m-d H:i" }}</a></div>
+    <div><strong>Organizer:</strong> {{ event.organizer }}</div>
+    <div><strong>Field:</strong> {{ event.field }}</div>
+    <hr>
+    <div><strong>Description:</strong> {{ event.description|safe }}</div>
+    <hr>
+    <div>Maximum number of players: {{ event.max_players }}</div>
+    <div>Registered players: {{ event.registered_players }}</div>
+    <div>Price: {{ event.price }} €</div>
+{% endblock %}
