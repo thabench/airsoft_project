@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+
+<h1>Organizer list</h1>
+<hr>
+<hr>
+{% if organizers %}
+<div>
+    {% for organizer in organizers %}
+    <div style='font-size:25px'> {{ organizer.name }} </div>
+    <p style="border-top: dotted 3px;color: lightgrey;"></p>
+    {% if organizer.description|length > 65 %}
+        <div style='font-size:10px'> {{ organizer.description|safe|slice:65 }}... </div>
+    {% else %}
+        <div style='font-size:10px'> {{ organizer.description|safe }} </div>
+    {% endif %}
+    <hr>
+    <hr>
+    {% endfor %}
+</div>
+{% else %}
+<div> No organizers yet </div>
+{% endif %}
+
+{% endblock %}

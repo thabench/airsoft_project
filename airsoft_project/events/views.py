@@ -20,3 +20,9 @@ class FieldListView(generic.ListView):
     model = Field
     context_object_name = 'fields'
     template_name = 'field_list.html'
+    
+    
+class OrganizerListView(generic.ListView):
+    model = Organizer
+    context_object_name = 'organizers'
+    template_name = 'organizer_list.html'
