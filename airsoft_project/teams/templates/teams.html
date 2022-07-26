@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+
 <h1>Team list</h1>
 {% if teams %}
 <div>
@@ -8,3 +12,5 @@
 {% else %}
 <div> No teams yet </div>
 {% endif %}
+
+{% endblock %}

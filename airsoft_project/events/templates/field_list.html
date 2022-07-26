@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+
 <h1>Field list</h1>
 {% if fields %}
 <div>
@@ -9,3 +13,5 @@
 {% else %}
 <div> No fields yet </div>
 {% endif %}
+
+{% endblock %}

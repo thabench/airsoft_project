@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+
 <h1>Event list</h1>
 {% if events %}
 <div>
@@ -10,3 +14,5 @@
 {% else %}
 <div> No events yet </div>
 {% endif %}
+
+{% endblock %}
