@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>{{ event.name }}</h1>
-    <small>{{ event.created_on|date:"Y-m-d" }}</small>
+    <small>Created on: {{ event.created_on|date:"Y-m-d" }}</small>
     <br>
     <br>
     <div><strong>Date:</strong> {{ event.date|date:"Y-m-d H:i" }}</a></div>

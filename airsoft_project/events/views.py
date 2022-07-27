@@ -31,3 +31,13 @@ class OrganizerListView(generic.ListView):
 class EventDetailView(generic.DetailView):
     model = Event
     template_name = 'event_detail.html'
+    
+    
+class FieldDetailView(generic.DetailView):
+    model = Field
+    template_name = 'field_detail.html'
+    
+    
+class OrganizerDetailView(generic.DetailView):
+    model = Organizer
+    template_name = 'organizer_detail.html'

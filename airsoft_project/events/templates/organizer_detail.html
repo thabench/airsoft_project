@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>{{ organizer.name }}</h1>
+    <br>
+    <h2>Contacts:</h2>
+    <div>Email: {{ organizer.email }}</div>
+    <div>Address and phone: {{ organizer.contacts }}</div>
+    <hr>
+    <div><strong>Description:</strong> {{ organizer.description|safe }}</div>
+    <hr>
+    <h2>{{ organizer.name }}'s events:</h2>
+    <p>{{organizer.events}}</p>
+
+{% endblock %}

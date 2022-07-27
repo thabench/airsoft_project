@@ -19,3 +19,13 @@ class TeamListView(generic.ListView):
     model = Team
     context_object_name = 'teams'
     template_name = 'teams.html'
+    
+    
+class PlayerDetailView(generic.DetailView):
+    model = Player
+    template_name = 'player_detail.html'
+    
+    
+class TeamDetailView(generic.DetailView):
+    model = Team
+    template_name = 'team_detail.html'

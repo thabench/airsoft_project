@@ -9,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 class Player(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     n_name = models.CharField('Nickname of the player', max_length=150)
-    team = models.OneToOneField("Team", on_delete=models.SET_NULL, null=True)
+    team = models.ForeignKey("Team", on_delete=models.SET_NULL, null=True)
     games_played = models.IntegerField()
     player_from = models.CharField('Town where player is from', max_length=150)
     date_of_birth = models.DateField()

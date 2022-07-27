@@ -11,7 +11,7 @@ class Organizer(models.Model):
     contacts = models.CharField('Address and contacts', max_length=150)
     description = HTMLField(null=True)
     events = models.ForeignKey('Event', related_name='event', on_delete=models.SET_NULL, null=True, blank=True)
-    fields = models.ForeignKey('Field', related_name='field', on_delete=models.SET_NULL, null=True, blank=True)
+    
         
     class Meta:
         verbose_name = _("Organizer")
@@ -24,8 +24,8 @@ class Organizer(models.Model):
 class Event(models.Model):
     name = models.CharField('Name of the event',  max_length=150)
     date = models.DateTimeField('Date of event', null=True, blank=True)
-    organizer = models.OneToOneField("Organizer", on_delete=models.SET_NULL, null=True)
-    field = models.OneToOneField('Field', on_delete=models.SET_NULL, null=True)
+    organizer = models.ForeignKey("Organizer", on_delete=models.SET_NULL, null=True)
+    field = models.ForeignKey('Field', on_delete=models.SET_NULL, null=True)
     description = HTMLField(null=True)
     price = models.FloatField("Price")
     max_players = models.IntegerField("Maximum player number")

@@ -6,7 +6,7 @@
 {% if fields %}
 <div>
     {% for field in fields %}
-    <div> {{ field.name }} {{ field.location}} </div>
+    <a href={{ field.id }}><div> {{ field.name }} </div></a>
     <hr>
     {% endfor %}
 </div>

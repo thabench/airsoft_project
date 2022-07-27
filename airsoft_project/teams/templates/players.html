@@ -6,7 +6,8 @@
 {% if players %}
 <div>
     {% for player in players %}
-    <div> {{ player.n_name }} </div>
+    <a href={{ player.id }}><div> {{ player.n_name }} </div></a>
+    <br>
     {% endfor %}
 </div>
 {% else %}

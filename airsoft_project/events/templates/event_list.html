@@ -7,7 +7,7 @@
 <div>
     {% for event in events %}
     
-    <a href={{ event.id }} <div> {{ event.name }} {{ event.date|date:"Y-m-d" }} </div></a>
+    <a href={{ event.id }} <div> {{ event.name }} ({{ event.date|date:"Y-m-d" }}) </div></a>
     <div> {{ event.field }}
     
     <hr>

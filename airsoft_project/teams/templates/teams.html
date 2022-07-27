@@ -6,7 +6,8 @@
 {% if teams %}
 <div>
     {% for team in teams %}
-    <div> {{ team.name }} </div>
+    <a href={{ team.id }}><div> {{ team.name }} </div></a>
+    <br>
     {% endfor %}
 </div>
 {% else %}

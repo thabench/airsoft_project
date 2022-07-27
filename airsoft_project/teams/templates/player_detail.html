@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>{{ player.n_name }}</h1>
+    <br>
+    <h2>Details:</h2>
+    <div>User: {{ player.user }}</div>
+    <div>Hometown: {{ player.player_from }}</div>
+    <div>Date of birth: {{ player.date_of_birth|date:'Y-m-d' }}</div>
+    <div>Team: {{ player.team }}</div>
+    {% if player.team_leader == True %}
+        <div> {{ player.n_name }} is the leader of {{ player.team }} team
+    {% endif %}
+
+{% endblock %}
