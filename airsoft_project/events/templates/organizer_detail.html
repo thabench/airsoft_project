@@ -11,6 +11,15 @@
     <div><strong>Description:</strong> {{ organizer.description|safe }}</div>
     <hr>
     <h2>{{ organizer.name }}'s events:</h2>
-    <p>{{organizer.events}}</p>
+    <div>
+    {% if organizer.event_organizers.all %}
+    {% for i in organizer.event_organizers.all %}
+    <a href="{% url 'event_detail' i.pk %}"><div>{{ i.name }} ({{i.date|date:'Y-m-d'}}) </div></a>
+    {% endfor %}
+    {% else %}
+    <div> No events yet </div>
+    {% endif %}
+    <br>
+    </div>
 
 {% endblock %}

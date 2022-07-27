@@ -8,9 +8,9 @@
     <div>User: {{ player.user }}</div>
     <div>Hometown: {{ player.player_from }}</div>
     <div>Date of birth: {{ player.date_of_birth|date:'Y-m-d' }}</div>
-    <div>Team: {{ player.team }}</div>
+    <div>Team: <a href="{% url 'team_detail' player.team.id %}"> {{ player.team }}</a></div>
     {% if player.team_leader == True %}
-        <div> {{ player.n_name }} is the leader of {{ player.team }} team
+        <div><strong>{{ player.n_name }}</strong> is the leader of {{ player.team }} team
     {% endif %}
 
 {% endblock %}

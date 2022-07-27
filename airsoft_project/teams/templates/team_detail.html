@@ -6,7 +6,15 @@
     <br>
     <h2>Contacts:</h2>
     <div>{{ team.contacts }}</div>
+    <hr>
     <h3>Team players:</h3>
-    <p>{{team.players}}</p>
+    <div>
+    {% for i in team.team_players.all %}
+    <a href="{% url 'player_detail' i.pk %}"><div>{{ i.n_name }} {{i.pk}} </div></a>
+    {% endfor %}
+    <br>
+    </div>
 
+    <a href="{% url 'teams' %}"><div style='font-size:20px'><strong>Back to team list</strong></div></a>
 {% endblock %}
+
