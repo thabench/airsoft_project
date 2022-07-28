@@ -2,6 +2,7 @@
 
 {% block content %}
 
+    <div class='indented'>
     <h1>{{ field.name }}</h1>
     <br>
     <div><strong>Coordinates:</strong> {{ field.location_long }}, {{ field.location_lat }}</div>
@@ -10,5 +11,6 @@
     <hr>
     <div>Field map: <img src={{ field.field_map.url }}></div>
     <div>(TODO) Location on map:</div>
-
+    </div>
+    
 {% endblock %}

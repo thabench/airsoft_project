@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <div class='indented'>
     <h1>{{ event.name }}</h1>
     <small>Created on: {{ event.created_on|date:"Y-m-d" }}</small>
     <br>
@@ -14,4 +15,5 @@
     <div>Maximum number of players: {{ event.max_players }}</div>
     <div>Registered players: {{ event.registered_players }}</div>
     <div>Price: {{ event.price }} €</div>
+    </div>
 {% endblock %}

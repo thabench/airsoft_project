@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 import uuid
 from django.utils.translation import gettext_lazy as _
+from PIL import Image
 
 # Create your models here.
  
@@ -47,3 +48,11 @@ class Player(models.Model):
     
     def get_absolute_url(self):
         return reverse("player_detail", kwargs={"pk": self.pk})
+    
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img = Image.open(self.picture.path)
+        if img.height > 200 or img.width > 200:
+            output_size = (200, 200)
+            img.thumbnail(output_size)
+            img.save(self.picture.path)

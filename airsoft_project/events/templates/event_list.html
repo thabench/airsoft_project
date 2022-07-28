@@ -2,6 +2,7 @@
 {% load i18n %}
 {% block content %}
 
+<div class='indented'>
 <h1>Event list</h1>
 {% if events %}
 <div>
@@ -16,5 +17,6 @@
 {% else %}
 <div> No events yet </div>
 {% endif %}
+</div>
 
 {% endblock %}

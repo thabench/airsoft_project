@@ -1,0 +1,10 @@
+.indented{
+    padding-left: 5%;
+    padding: 2%;
+}
+
+.profile-picture{
+    width: 200px;
+    height: 200px;
+    border-radius: 15%;
+}
