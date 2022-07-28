@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import User
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.decorators import login_required
+from airsoft_project.forms import UserUpdateForm, ProfileUpdateForm
 
 # Create your views here.
 
@@ -73,4 +74,20 @@ def register(request):
 
 @login_required
 def profile(request):
-    return render(request, 'profile.html')
+    if request.method == "POST":
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.player)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f"Profile updated")
+            return redirect('profile')
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.player)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form,
+    }
+    return render(request, 'profile.html', context)

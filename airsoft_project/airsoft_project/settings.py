@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'events',
     'teams.apps.TeamsConfig',
     'tinymce',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -171,3 +172,5 @@ EMAIL_POST = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = '2doappteam@gmail.com'
 EMAIL_HOST_PASSWORD = env('EMAIL_PASS')
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
