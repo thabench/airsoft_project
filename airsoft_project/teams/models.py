@@ -7,13 +7,14 @@ from django.utils.translation import gettext_lazy as _
 # Create your models here.
 
 class Player(models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     n_name = models.CharField('Nickname of the player', max_length=150)
+    picture = models.ImageField(default="profile_pics/defaulf.png", upload_to="profile_pics")
     team = models.ForeignKey("Team", related_name='team_players', on_delete=models.SET_NULL, null=True)
-    games_played = models.IntegerField()
+    games_played = models.IntegerField(null=True, blank=True)
     player_from = models.CharField('Town where player is from', max_length=150)
-    date_of_birth = models.DateField()
-    team_leader = models.BooleanField()
+    date_of_birth = models.DateField(null=True, blank=True)
+    team_leader = models.BooleanField(default=False)
         
     class Meta:
         verbose_name = _("Player")

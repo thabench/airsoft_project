@@ -39,7 +39,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'events',
-    'teams',
+    'teams.apps.TeamsConfig',
     'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',

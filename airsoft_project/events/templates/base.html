@@ -47,18 +47,18 @@
           </li>
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}"><strong>{{ user.get_username }}:</strong>{% trans "Logout" %}</a>
+          <a class="nav-link" href="{% url 'logout' %}"><strong>{% trans "Logout" %}</a>
         </li>
-        {% comment %} <li class="nav-item">
-          <a class="nav-link" href="{% url 'profile' %}">{{ user.get_username }}</a>
-        </li> {% endcomment %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'profile' %}">{{ user.get_username }}</strong></a>
+        </li>
         {% else %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'login' %}">{% trans "Login" %}</a>
         </li>
-        {% comment %} <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="{% url 'register'%}">{% trans "Register" %}</a>
-        </li> {% endcomment %}
+        </li>
         {% endif %}
         {% comment %} <li>
           <form action="{% url 'search' %}" method="get" class="form-inline my-2 my-md-0">

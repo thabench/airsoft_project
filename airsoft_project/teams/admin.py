@@ -1,5 +1,5 @@
 from django.contrib import admin
-from teams.models import Player, Team
+from teams.models import Player, Team 
 
 # Register your models here.
 

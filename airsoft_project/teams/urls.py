@@ -7,4 +7,6 @@ urlpatterns = [
     path('<uuid:pk>', views.TeamDetailView.as_view(), name='team_detail'),
     path('players/', views.PlayerListView.as_view(), name='players'),
     path('players/<int:pk>', views.PlayerDetailView.as_view(), name='player_detail'),
+    path('players/register/', views.register, name='register'),
+    path('profile/', views.profile, name='profile'),
 ]
