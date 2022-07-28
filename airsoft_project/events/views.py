@@ -6,7 +6,14 @@ from events.models import Organizer, Event, Field
 
 
 def index(request):
-    return render(request, 'index.html')
+    events = Event.objects.all()
+    # active_events = Event.objects.filter(status='a')
+    
+    context = {'events': events,
+               
+               } #'active_events': active_events,
+    
+    return render(request, 'index.html', context=context)
 
 
 def about(request):

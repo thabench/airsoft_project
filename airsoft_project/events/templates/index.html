@@ -2,6 +2,30 @@
 {% load i18n %}
 {% block content %}
 
-Main window of Events
+<center>
+{% if events %}
+
+<h1>Events this month</h1>
+{% for event in events %}
+<a href="{% url 'event_detail' event.id %}"><div>{{ event }}</div></a>
+<br>
+{% endfor %}
+
+{% else %}
+
+<h1>No events this month</h1>
+
+{% endif %}
+
+<h2>Our partners</h2>
+</center>
+
+<div>
+<a href='https://sratas.lt/' target="_blank"><div>ŠRATAS</div></a>
+<a href='https://gunfire.com/' target="_blank"><div>GUNFIRE</div></a>
+<a href='https://www.airsoftas.lt/' target="_blank"><div>AIRSOFTAS</div></a>
+<a href='https://mfrontas.lt/' target="_blank"><div>MUŠIO FRONTAS</div></a>
+<a href='https://karinespramogos.lt' target="_blank"><div>KARINĖS PRAMOGOS</div></a>
+</div>
 
 {% endblock %}

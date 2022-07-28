@@ -12,5 +12,7 @@
     {% if player.team_leader == True %}
         <div><strong>{{ player.n_name }}</strong> is the leader of {{ player.team }} team
     {% endif %}
+    <br>
+    <a href="{% url 'players' %}"><div style='font-size:20px'><strong>Player list</strong></div></a>
 
 {% endblock %}
