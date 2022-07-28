@@ -157,3 +157,12 @@ TINYMCE_DEFAULT_CONFIG = {
     'menubar': True,
     'statusbar': True,
     }
+
+LOGIN_REDIRECT_URL = 'events_index'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_POST = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = '2doappteam@gmail.com'
+EMAIL_HOST_PASSWORD = 'Qwe1Asd2Zxc3'

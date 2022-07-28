@@ -27,26 +27,6 @@
         </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto nice-text-nav">
-        
-        {% comment %} {% if user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'profile' %}">{{ user.get_username }}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}">{% trans "Logout" %}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'my_orders' %}">{% trans "My orders" %}</a>
-        </li>
-        {% else %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'login' %}">{% trans "Login" %}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'register'%}">{% trans "Register" %}</a>
-        </li>
-        {% endif %} {% endcomment %}
-
         <li class="nav-item">
           <a class="nav-link" href="{% url 'events_index' %}">{% trans "Home" %}</a>
         </li>
@@ -65,6 +45,21 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'players' %}">{% trans "Players" %}</a>
           </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}"><strong>{{ user.get_username }}:</strong>{% trans "Logout" %}</a>
+        </li>
+        {% comment %} <li class="nav-item">
+          <a class="nav-link" href="{% url 'profile' %}">{{ user.get_username }}</a>
+        </li> {% endcomment %}
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">{% trans "Login" %}</a>
+        </li>
+        {% comment %} <li class="nav-item">
+          <a class="nav-link" href="{% url 'register'%}">{% trans "Register" %}</a>
+        </li> {% endcomment %}
+        {% endif %}
         {% comment %} <li>
           <form action="{% url 'search' %}" method="get" class="form-inline my-2 my-md-0">
           <input name="query" class="nav-item" style='height:30px; border:none; margin-top:15px; border-radius:4px' type="text" placeholder={% trans "Search" %}>

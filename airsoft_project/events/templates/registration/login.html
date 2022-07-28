@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+  {% if form.errors %}
+    <p>Log in failed. Try again</p>
+  {% endif %}
+  
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>You do not have access. Log in.</p>
+    {% endif %}
+  {% endif %}
+  <div style='padding-top:50px'>
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div>Username</div>
+    <div>{{ form.username }}</div>
+    <br>
+    <div>Password</div>
+    <div>{{ form.password }}</div>
+    <br>
+    <button class="btn btn-default btn-lg" type="submit">Log in</button>
+    <input type="hidden" name="next" value="{{ next }}" />
+  </form>
+  <br><br>
+  <p><a href="{% url 'password_reset' %}">Forgot password?</a></p>
+</div>
+</center>
+{% endblock %}
