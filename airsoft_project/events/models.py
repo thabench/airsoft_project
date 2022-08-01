@@ -55,3 +55,8 @@ class Field(models.Model):
 
     def __str__(self):
         return self.name
+    
+    @property
+    def get_api_key(self):
+        from airsoft_project.settings import GOOGLE_MAPS_API_KEY as api_key
+        return api_key

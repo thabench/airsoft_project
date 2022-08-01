@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_google_maps',
     
 ]
 
@@ -174,3 +175,5 @@ EMAIL_HOST_USER = '2doappteam@gmail.com'
 EMAIL_HOST_PASSWORD = env('EMAIL_PASS')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+GOOGLE_MAPS_API_KEY = env('GOOGLE_MAPS_API_KEY')
