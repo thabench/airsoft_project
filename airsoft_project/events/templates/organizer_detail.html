@@ -6,7 +6,7 @@
     <h1>{{ organizer.name }}</h1>
     <br>
     <h2>Contacts:</h2>
-    <div>Email: {{ organizer.email }}</div>
+    {% comment %} <div>Email: {{ organizer.email }}</div> {% endcomment %}
     <div>Address and phone: {{ organizer.contacts }}</div>
     <hr>
     <div><strong>Description:</strong> {{ organizer.description|safe }}</div>

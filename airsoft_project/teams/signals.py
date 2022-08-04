@@ -1,15 +1,18 @@
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.dispatch import receiver
-from .models import Player
+from .models import Profile
+from django.contrib.auth.models import Group
 
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:
-        Player.objects.create(user=instance)
-        print('KWARGS: ', kwargs)
+        Profile.objects.create(user=instance)
+        print('Profile created')
 
 
 @receiver(post_save, sender=User)
 def save_profile(sender, instance, **kwargs):
-    instance.player.save()
+    instance.profile.save()
+    print('Profile saved')  
+    

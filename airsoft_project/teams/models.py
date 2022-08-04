@@ -6,6 +6,14 @@ from django.utils.translation import gettext_lazy as _
 from PIL import Image
 
 # Create your models here.
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    is_organizer = models.BooleanField(default=False)
+    is_player = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return f'{self.user}'
+
  
 class Team(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unique player ID')
@@ -30,7 +38,7 @@ class Team(models.Model):
     
     
 class Player(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile = models.OneToOneField(Profile, related_name='player',on_delete=models.CASCADE, null=True, blank=True)
     n_name = models.CharField('Nickname of the player', max_length=150)
     picture = models.ImageField(default="profile_pics/defaulf.png", upload_to="profile_pics")
     team = models.ForeignKey("Team", related_name='team_players', on_delete=models.SET_NULL, null=True, default=Team.get_default_pk)
@@ -56,3 +64,5 @@ class Player(models.Model):
             output_size = (200, 200)
             img.thumbnail(output_size)
             img.save(self.picture.path)
+            
+            

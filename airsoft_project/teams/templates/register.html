@@ -32,6 +32,14 @@
                 <label for="password2">{% trans 'Confirm password' %}</label>
                 <input name="password2" type="password" class="form-control" id="password2" aria-describedby="pwd2Help">
             </div>
+            <div class="form-group">
+                <label for="organizer">{% trans 'Register as organizer' %}</label>
+                <input name="organizer" type="checkbox" id="organizer" aria-describedby="organizerHelp">
+            </div>
+            <div class="form-group">
+                <label for="player">{% trans 'Register as player' %}</label>
+                <input name="player" type="checkbox" id="player" aria-describedby="playerHelp">
+            </div>
             <button type="submit" class="btn btn-primary register-button">{% trans 'Register' %}</button>
         </form>
         <p>{% trans 'Already a member' %}? <a href="/login"><strong>{% trans 'Log in' %}.</strong></a></p>
