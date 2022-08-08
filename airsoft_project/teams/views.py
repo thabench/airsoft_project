@@ -83,7 +83,7 @@ def register(request):
                         new_user.profile.save()
                         Player.objects.create(profile=new_user.profile)
                     messages.success(request, _('Registration successful!'))
-                    return redirect('login')
+                    return redirect('profile')
         else:
             messages.error(request, _('Passwords did not match!'))
             return redirect('register')
@@ -96,10 +96,11 @@ def profile(request):
     if request.method == "POST" and current_user.profile.is_organizer == True and current_user.profile.is_player == True:
         o_form = OrganizerUpdateForm(request.POST, request.FILES, instance=request.user.profile.organizer)
         p_form = PlayerUpdateForm(request.POST, request.FILES, instance=request.user.profile.player)
-        if u_form.is_valid() and o_form.is_valid():
+        if u_form.is_valid() and o_form.is_valid() and p_form.is_valid():
             u_form.save()
-            o_form.save()
             p_form.save()
+            o_form.save()
+            
             messages.success(request, f"Profile updated")
             return redirect('profile')
     elif request.method == "POST" and current_user.profile.is_organizer == True:

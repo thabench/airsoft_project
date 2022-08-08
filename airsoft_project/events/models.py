@@ -9,8 +9,8 @@ from PIL import Image
 
 class Organizer(models.Model):
     profile = models.OneToOneField(Profile, related_name='organizer',on_delete=models.CASCADE)
-    name = models.CharField('Name of the organizer', max_length=150)
-    picture = models.ImageField(default="organizer_pics/defaulf.png", upload_to="organizer_pics")
+    name = models.CharField('Name of the organizer', max_length=150, default='New Organizer')
+    profile_picture = models.ImageField(default="events/static/media/defaulf.png", upload_to="events/static/organizer_pics")
     contacts = models.CharField('Address and contacts', max_length=150)
     description = HTMLField(null=True)
     
@@ -24,11 +24,11 @@ class Organizer(models.Model):
     
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        img = Image.open(self.picture.path)
+        img = Image.open(self.profile_picture.path)
         if img.height > 200 or img.width > 200:
             output_size = (200, 200)
             img.thumbnail(output_size)
-            img.save(self.picture.path)
+            img.save(self.profile_picture.path)
     
     
 class Event(models.Model):

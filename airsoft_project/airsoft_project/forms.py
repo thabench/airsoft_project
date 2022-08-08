@@ -21,4 +21,4 @@ class PlayerUpdateForm(forms.ModelForm):
 class OrganizerUpdateForm(forms.ModelForm):
     class Meta:
         model = Organizer
-        fields = ['name', 'picture', 'contacts', 'description']
+        fields = ['name', 'profile_picture', 'contacts', 'description']

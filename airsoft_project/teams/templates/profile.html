@@ -23,7 +23,7 @@
                     <div class="media-body">
                         <h2 class="account-heading">{{ user.profile.organizer.name }}</h2>
                     </div>
-                    <img class="profile-picture" src="{{ user.profile.organizer.picture.url }}">
+                    <img class="profile-picture" src="{{ user.profile.organizer.profile_picture.url }}">
                 </div>
             </div>
         {% endif %}
@@ -52,14 +52,14 @@
                 {{ o_form|crispy }}
             </fieldset>
             {% endif %}
-            
+
             {% if user.profile.is_player == True %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Player info</legend>
                 {{ p_form|crispy }}
             </fieldset>
             {% endif %}
-
+            
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Update</button>
             </div>
