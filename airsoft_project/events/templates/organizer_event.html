@@ -1,10 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <div class='indented'>
     <h1>Event: {{ event }}</h1>
     <hr>
         
-        <div><strong>Name: {{event.name}}</strong>
-        <div><strong>Date:</strong> {{event.date}}</div>
-
+        <div><strong>Date:</strong> {{event.date|date:"Y-m-d"}}</div>
+        <br>
+        <div><strong>Description:</strong> {{event.description|safe}}</div>
+        <br>
+        <div><strong>Field:</strong> {{event.field}}</div>
+        <div><strong>Maximum number of players:</strong> {{event.max_players}}</div>
+        <div><strong>Registered players:</strong> {{event.registered_players}}</div>
+        <div><strong>Price:</strong> {{event.price}} €</div>
+        <div><strong>Created on:</strong> {{event.created_on|date:"Y-m-d"}}</div>
+        <br>
+        <button><a href="{% url 'organizer_events' %}">To my events</a></button>
+    </div>
 {% endblock %}

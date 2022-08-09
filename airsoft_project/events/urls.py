@@ -12,5 +12,6 @@ urlpatterns = [
     path('organizers/<int:pk>', views.OrganizerDetailView.as_view(), name='organizer_detail'),
     path('about', views.about, name='about'),
     path('my_events', views.OrganizerEventListView.as_view(), name='organizer_events'),
-    path('my_events/<int:pk>', views.OrganizerEventDetailView.as_view(), name='organizer_event')
+    path('my_events/<int:pk>', views.OrganizerEventDetailView.as_view(), name='organizer_event'),
+    path('my_events/new', views.OrganizerEventCreateView.as_view(), name='create_event'),
 ]

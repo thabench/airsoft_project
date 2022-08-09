@@ -68,3 +68,14 @@ class OrganizerEventDetailView(LoginRequiredMixin, generic.DetailView):
     model = Event
     context_object_name = 'event'
     template_name = 'organizer_event.html'
+    
+    
+class OrganizerEventCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Event
+    fields = ['name', 'date', 'field', 'description', 'price', 'max_players']
+    success_url = "/events/list/"
+    template_name = 'organizer_event_form.html'
+    
+    def form_valid(self, form):
+        form.instance.organizer = self.request.user.profile.organizer
+        return super().form_valid(form)

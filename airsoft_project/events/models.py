@@ -39,7 +39,7 @@ class Event(models.Model):
     description = HTMLField(null=True)
     price = models.FloatField("Price")
     max_players = models.IntegerField("Maximum player number")
-    registered_players  = models.IntegerField("Registered player number")
+    registered_players  = models.IntegerField("Registered player number", default=0)
     created_on = models.DateTimeField(auto_now_add=True)
     
     class Meta:

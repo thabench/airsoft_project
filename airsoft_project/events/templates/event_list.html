@@ -4,6 +4,7 @@
 
 <div class='indented'>
 <h1>Event list</h1>
+
 {% if events %}
 <div>
     {% for event in events %}
@@ -20,9 +21,10 @@
 <div> No events yet </div>
 {% endif %}
 {% if user.profile.is_organizer == True %}
-    <div>
-        <a href="{% url 'organizer_events'%}">{% trans "My events" %}</a>
-    </div>
+
+    <div><a href="{% url 'organizer_events'%}">{% trans "My events" %}</a></div>
+    <button><a href="{% url 'create_event' %}">Create new event</a></button>
+
 {% endif %}
 </div>
 
