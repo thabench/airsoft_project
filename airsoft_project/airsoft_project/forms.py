@@ -9,16 +9,17 @@ class UserUpdateForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = ['email',]
 
 
 class PlayerUpdateForm(forms.ModelForm):
     class Meta:
         model = Player
-        fields = ['n_name', 'picture', 'player_from', 'date_of_birth']
+        fields = ['n_name', 'date_of_birth', 'player_from', 'picture',]
+        widgets = {'date_of_birth': forms.DateInput(attrs={'type': 'date'}, format=('%Y-%m-%d'))}
         
 
 class OrganizerUpdateForm(forms.ModelForm):
     class Meta:
         model = Organizer
-        fields = ['name', 'profile_picture', 'contacts', 'description']
+        fields = ['name', 'contacts', 'description', 'profile_picture',]

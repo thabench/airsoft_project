@@ -9,7 +9,10 @@
 {% if organizers %}
 <div>
     {% for organizer in organizers %}
-    <a href={{organizer.id}}><div style='font-size:25px'> {{ organizer.name }} </div></a>
+    <a href={{organizer.id}}>
+        <img class="profile-picture" src="{{ organizer.profile_picture.url }}">
+        <div style='font-size:25px'> {{ organizer.name }} </div>
+    </a>
     <p style="border-top: dotted 3px;color: lightgrey;"></p>
     {% if organizer.description|length > 65 %}
         <div style='font-size:10px'> {{ organizer.description|safe|slice:65 }}... </div>

@@ -10,5 +10,7 @@ urlpatterns = [
     path('fields/<int:pk>', views.FieldDetailView.as_view(), name='field_detail'),
     path('organizers/', views.OrganizerListView.as_view(), name='organizer_list'),
     path('organizers/<int:pk>', views.OrganizerDetailView.as_view(), name='organizer_detail'),
-    path('about', views.about, name='about')
+    path('about', views.about, name='about'),
+    path('my_events', views.OrganizerEventListView.as_view(), name='organizer_events'),
+    path('my_events/<int:pk>', views.OrganizerEventDetailView.as_view(), name='organizer_event')
 ]

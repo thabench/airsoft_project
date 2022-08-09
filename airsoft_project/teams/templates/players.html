@@ -7,7 +7,11 @@
 {% if players %}
 <div>
     {% for player in players %}
-    <a href={{ player.id }}><div> {{ player.n_name }} </div></a>
+    <a href={{ player.id }}>
+        <img class="profile-picture" src="{{ player.picture.url }}">
+        <div> {{ player.n_name }} </div>
+    </a>
+    <div> {{ player.team }} </div>
     <br>
     {% endfor %}
 </div>

@@ -16,54 +16,50 @@
         <br>
         <div class="text-secondary">{{ user.email }}</div>
     </center>
-    <div class='main-profile-block'>
-        {% if user.profile.is_organizer == True %}
-            <div class='profile-type-block'>
-                <div class="media">    
-                    <div class="media-body">
-                        <h2 class="account-heading">{{ user.profile.organizer.name }}</h2>
-                    </div>
-                    <img class="profile-picture" src="{{ user.profile.organizer.profile_picture.url }}">
-                </div>
-            </div>
-        {% endif %}
-        {% if user.profile.is_player == True %}
-        <div class='profile-type-block'>
-            <div class="media">    
-                <img class="profile-picture" src="{{ user.profile.player.picture.url }}">
-                <div class="media-body">
-                    <h2 class="account-heading">{{ user.profile.player.n_name }}</h2>
-                </div>
-            </div>
-        </div>
-        {% endif %}
-    </div>
     <div>
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">User info</legend>
-                {{ u_form|crispy }}
-            </fieldset>
             
-            {% if user.profile.is_organizer == True %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Organizer info</legend>
-                {{ o_form|crispy }}
-            </fieldset>
-            {% endif %}
+            <div class='main-profile-block'>
+                {% if user.profile.is_organizer == True %}
+                    <div class='profile-type-block'>
+                        <h2 class="account-heading">{{ user.profile.organizer.name }}</h2>
+                        <br>
+                        <img class="profile-picture" src="{{ user.profile.organizer.profile_picture.url }}">
 
-            {% if user.profile.is_player == True %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Player info</legend>
-                {{ p_form|crispy }}
-            </fieldset>
-            {% endif %}
-            
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4">Organizer info</legend>
+                            {{ o_form|crispy }}
+                        </fieldset>
+
+                    </div>
+                {% endif %}
+                {% if user.profile.is_player == True %}
+                <div class='profile-type-block'>
+                    <h2 class="account-heading">{{ user.profile.player.n_name }}</h2>    
+                    <br>
+                    <img class="profile-picture" src="{{ user.profile.player.picture.url }}">
+                        
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Player info</legend>
+                        {{ p_form|crispy }}
+                    </fieldset>
+                </div>
+                {% endif %}
+            </div>
+            <center>
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">User info</legend>
+                    {{ u_form|crispy }}
+                </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Update</button>
             </div>
+            </center>
         </form>
     </div>    
 </div>
 {% endblock content %}
+
+
+{% comment %} STOP {% endcomment %}

@@ -9,13 +9,20 @@
     {% for event in events %}
     
     <a href={{ event.id }} <div> {{ event.name }} ({{ event.date|date:"Y-m-d" }}) </div></a>
-    <div> {{ event.field }}
+    <div> 
+        <div> {{ event.field }} </div>
+        <div><strong> Created by:</strong> {{ event.organizer }}</div>
     
     <hr>
     {% endfor %}
 </div>
 {% else %}
 <div> No events yet </div>
+{% endif %}
+{% if user.profile.is_organizer == True %}
+    <div>
+        <a href="{% url 'organizer_events'%}">{% trans "My events" %}</a>
+    </div>
 {% endif %}
 </div>
 
