@@ -1,5 +1,5 @@
 from teams.models import Player
-from events.models import Organizer
+from events.models import Organizer, Event
 from django import forms
 from django.contrib.auth.models import User
 
@@ -23,3 +23,15 @@ class OrganizerUpdateForm(forms.ModelForm):
     class Meta:
         model = Organizer
         fields = ['name', 'contacts', 'description', 'profile_picture',]
+        
+        
+class OrganizerEventCreateForm(forms.ModelForm):
+    class Meta:
+        model = Event
+        fields = ['name', 'date', 'field', 'description', 'price', 'max_players']
+        
+        
+class OrganizerEventUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Event
+        fields = ['name', 'date', 'field', 'description', 'price', 'max_players']
