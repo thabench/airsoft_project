@@ -15,6 +15,13 @@
         <div><strong>Price:</strong> {{event.price}} €</div>
         <div><strong>Created on:</strong> {{event.created_on|date:"Y-m-d"}}</div>
         <br>
+
+        {% comment %} {% if object.organizer == user %} {% endcomment %}
+        <div>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'update_event' object.id %}">Update</a>
+        </div>
+        {% comment %} {% endif %} {% endcomment %}
+
         <button><a href="{% url 'organizer_events' %}">To my events</a></button>
     </div>
 {% endblock %}

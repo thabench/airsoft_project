@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.views import generic
 from events.models import Organizer, Event, Field
-from teams.models import Profile
-from django.contrib.auth.mixins import LoginRequiredMixin
+from airsoft_project.forms import OrganizerEventCreateForm, OrganizerEventUpdateForm
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 # Create your views here.
 
@@ -72,10 +72,25 @@ class OrganizerEventDetailView(LoginRequiredMixin, generic.DetailView):
     
 class OrganizerEventCreateView(LoginRequiredMixin, generic.CreateView):
     model = Event
-    fields = ['name', 'date', 'field', 'description', 'price', 'max_players']
+    form_class = OrganizerEventCreateForm
     success_url = "/events/list/"
     template_name = 'organizer_event_form.html'
     
     def form_valid(self, form):
         form.instance.organizer = self.request.user.profile.organizer
         return super().form_valid(form)
+    
+
+class OrganizerEventUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    model = Event
+    form_class = OrganizerEventUpdateForm
+    success_url = "/events/list/"
+    template_name = 'organizer_update_event_form.html'
+    
+    def form_valid(self, form):
+        form.instance.organizer = self.request.user.profile.organizer
+        return super().form_valid(form)
+    
+    def test_func(self):
+        event = self.get_object()
+        return self.request.user == event.organizer.profile.user

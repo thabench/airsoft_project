@@ -14,4 +14,5 @@ urlpatterns = [
     path('my_events', views.OrganizerEventListView.as_view(), name='organizer_events'),
     path('my_events/<int:pk>', views.OrganizerEventDetailView.as_view(), name='organizer_event'),
     path('my_events/new', views.OrganizerEventCreateView.as_view(), name='create_event'),
+    path('my_events/<int:pk>/update', views.OrganizerEventUpdateView.as_view(), name='update_event'),
 ]
