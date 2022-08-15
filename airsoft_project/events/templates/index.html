@@ -2,34 +2,35 @@
 {% load i18n %}
 {% block content %}
 
-<center>
-{% if events %}
-
-<h1 class='main-font'>Events this month</h1>
-{% for event in events %}
-<a href="{% url 'event_detail' event.id %}"><div>{{ event }}</div></a>
-<br>
-{% endfor %}
-
-{% else %}
-
-<h1>No events this month</h1>
-
-{% endif %}
-</center>
-
-<footer>
+<div class='main-font'>
     <center>
-    <h2 class='main-font'>Our partners</h2>
+    {% if events %}
+
+    <h1>Events this month</h1>
+    {% for event in events %}
+    <a href="{% url 'event_detail' event.id %}"><div>{{ event }}</div></a>
+    <br>
+    {% endfor %}
+
+    {% else %}
+
+    <h1>No events this month</h1>
+
+    {% endif %}
     </center>
+    <div>
+        <center>
+        <h2>Our partners</h2>
+        </center>
 
-    <div class='indented links'>
-    <a href="https://sratas.lt/" target="_blank"><button class="contact-btn" style="background-image: url(../static/media/sratas.png)"></button></a>
-    <a href="https://gunfire.com/" target="_blank"><button class="contact-btn" style="background-image: url(../static/media/gunfire.png)"></button></a>
-    <a href="https://www.airsoftas.lt/" target="_blank"><button class="contact-btn" style="background-image: url(../static/media/airsoftas.png)"></button></a>
-    <a href="https://mfrontas.lt/" target="_blank"><button class="contact-btn" style="background-image: url(../static/media/MusioFrontas.png)"></button></a>
-    <a href="https://karinespramogos.lt" target="_blank"><button class="contact-btn" style="background-image: url(../static/media/karinesPramogos.png)"></button></a>
+        <div class='indented links'>
+        <a href="https://sratas.lt/" target="_blank"><button class="contact-btn" style="background-image: url(../static/media/sratas.png)"></button></a>
+        <a href="https://gunfire.com/" target="_blank"><button class="contact-btn" style="background-image: url(../static/media/gunfire.png)"></button></a>
+        <a href="https://www.airsoftas.lt/" target="_blank"><button class="contact-btn" style="background-image: url(../static/media/airsoftas.png)"></button></a>
+        <a href="https://mfrontas.lt/" target="_blank"><button class="contact-btn" style="background-image: url(../static/media/MusioFrontas.png)"></button></a>
+        <a href="https://karinespramogos.lt" target="_blank"><button class="contact-btn" style="background-image: url(../static/media/karinesPramogos.png)"></button></a>
 
+        </div>
     </div>
-</footer>
+</div>
 {% endblock %}

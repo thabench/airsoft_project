@@ -15,4 +15,10 @@ urlpatterns = [
     path('my_events/<int:pk>', views.OrganizerEventDetailView.as_view(), name='organizer_event'),
     path('my_events/new', views.OrganizerEventCreateView.as_view(), name='create_event'),
     path('my_events/<int:pk>/update', views.OrganizerEventUpdateView.as_view(), name='update_event'),
+    path('my_events/<int:pk>/delete', views.OrganizerEventDeleteView.as_view(), name='delete_event'),
+    path('my_fields', views.OrganizerFieldListView.as_view(), name='organizer_fields'),
+    path('my_fields/<int:pk>', views.OrganizerFieldDetailView.as_view(), name='organizer_field'),
+    path('my_fields/new', views.OrganizerFieldCreateView.as_view(), name='create_field'),
+    path('my_fields/<int:pk>/update', views.OrganizerFieldUpdateView.as_view(), name='update_field'),
+    path('my_fields/<int:pk>/delete', views.OrganizerFieldDeleteView.as_view(), name='delete_field'),
 ]

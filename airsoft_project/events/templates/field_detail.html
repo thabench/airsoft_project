@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <div class='indented'>
+<div class='indented main-font'>
     <h1>{{ field.name }}</h1>
     <br>
     <div><strong>Coordinates:</strong> {{ field.location_long }}, {{ field.location_lat }}</div>
@@ -12,8 +12,13 @@
     <div>Field map:</div>
     <div><img src={{ field.field_map.url }} width="600" height="450"></div>
     <div>Location on map:</div>
-    <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
-src="https://www.google.com/maps/embed/v1/view?zoom=17&center={{ field.location_long }},{{ field.location_lat }}&maptype=satellite&key={{ field.get_api_key }}"></iframe> 
-    </div>
+    
+    <iframe width="600" height="450" 
+        style="border:0" loading="lazy" 
+        allowfullscreen 
+        src="https://www.google.com/maps/embed/v1/view?zoom=17&center={{ field.location_long }},{{ field.location_lat }}&maptype=satellite&key={{ field.get_api_key }}">
+    </iframe> 
+    
+</div>
     
 {% endblock %}

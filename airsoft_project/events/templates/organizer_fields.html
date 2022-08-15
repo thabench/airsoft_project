@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class='indented main-font'>
+        <h1>My added fields</h1>
+    {% if fields %}
+
+    {% for field in fields %}
+        <hr>
+        <div><strong>{{ field.name }}</strong></div>
+        <br/>
+        <a class="btn btn-outline-info" href="{% url 'organizer_field' field.pk %}" role="button">See more</a>
+    {% endfor %}
+
+    {% else %}
+        <p>There are no fields created</p>
+    {% endif %}
+    </div>
+{% endblock %}

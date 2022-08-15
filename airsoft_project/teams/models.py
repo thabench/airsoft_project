@@ -40,7 +40,7 @@ class Team(models.Model):
 class Player(models.Model):
     profile = models.OneToOneField(Profile, related_name='player',on_delete=models.CASCADE, null=True, blank=True)
     n_name = models.CharField('Nickname of the player', max_length=150, default="New Player")
-    picture = models.ImageField(default="events/static/media/defaulf.png", upload_to="events/static/profile_pics")
+    picture = models.ImageField(default="defaulf.png", upload_to="profile_pics/")
     team = models.ForeignKey("Team", related_name='team_players', on_delete=models.SET_NULL, null=True, default=Team.get_default_pk)
     games_played = models.IntegerField(null=True, blank=True, default=0)
     player_from = models.CharField('Town where player is from', max_length=150)

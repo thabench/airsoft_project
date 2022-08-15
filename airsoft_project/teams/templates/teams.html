@@ -2,16 +2,18 @@
 {% load i18n %}
 {% block content %}
 
-<h1>Team list</h1>
-{% if teams %}
-<div>
-    {% for team in teams %}
-    <a href={{ team.id }}><div> {{ team.name }} </div></a>
-    <br>
-    {% endfor %}
+<div class='indented main-font'>
+    <h1>Team list</h1>
+    {% if teams %}
+    <div>
+        {% for team in teams %}
+        <a href={{ team.id }}><div> {{ team.name }} </div></a>
+        <br>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div> No teams yet </div>
+    {% endif %}
 </div>
-{% else %}
-<div> No teams yet </div>
-{% endif %}
 
 {% endblock %}

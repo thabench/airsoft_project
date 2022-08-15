@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class='indented'>
+    <div class='indented main-font'>
     <h1>Event: {{ event }}</h1>
     <hr>
         
@@ -19,9 +19,10 @@
         {% comment %} {% if object.organizer == user %} {% endcomment %}
         <div>
             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'update_event' object.id %}">Update</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'delete_event' object.id %}">Delete</a>
         </div>
         {% comment %} {% endif %} {% endcomment %}
 
-        <button><a href="{% url 'organizer_events' %}">To my events</a></button>
+        <a class='btn btn-outline-info' href="{% url 'organizer_events' %}" role="button">To my events</a>
     </div>
 {% endblock %}

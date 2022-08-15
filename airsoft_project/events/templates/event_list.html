@@ -2,7 +2,11 @@
 {% load i18n %}
 {% block content %}
 
-<div class='indented'>
+{% if user.profile.is_organizer == True %}
+<div class='create-btn'><a class="btn btn-outline-info" href="{% url 'create_event' %}">{% trans "Create new event" %}</a></div>
+{% endif %}
+
+<div class='indented main-font'>
 <h1>Event list</h1>
 
 {% if events %}
@@ -20,12 +24,11 @@
 {% else %}
 <div> No events yet </div>
 {% endif %}
+
 {% if user.profile.is_organizer == True %}
-
-    <div><a href="{% url 'organizer_events'%}">{% trans "My events" %}</a></div>
-    <button><a href="{% url 'create_event' %}">Create new event</a></button>
-
+    <a class="btn btn-outline-secondary" href="{% url 'organizer_events'%}">{% trans "My events" %}</a>
 {% endif %}
+
 </div>
 
 {% endblock %}

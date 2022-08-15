@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
@@ -10,7 +11,7 @@ from PIL import Image
 class Organizer(models.Model):
     profile = models.OneToOneField(Profile, related_name='organizer',on_delete=models.CASCADE)
     name = models.CharField('Name of the organizer', max_length=150, default='New Organizer')
-    profile_picture = models.ImageField(default="events/static/media/defaulf.png", upload_to="events/static/organizer_pics")
+    profile_picture = models.ImageField(default="defaulf.png", upload_to="organizer_pics/")
     contacts = models.CharField('Address and contacts', max_length=150)
     description = HTMLField(null=True)
     
@@ -55,10 +56,11 @@ class Event(models.Model):
     
 class Field(models.Model):
     name = models.CharField('Name of the game field',  max_length=150)
-    location_long = models.CharField('Location longitude', max_length=50, null=True)
-    location_lat = models.CharField('Location latitude', max_length=50, null=True)
-    description = HTMLField(null=True)
-    field_map = models.ImageField('Image of the map', upload_to='events/static/maps', null=True)
+    location_long = models.FloatField('Location longitude', max_length=50, null=True)
+    location_lat = models.FloatField('Location latitude', max_length=50, null=True)
+    description = HTMLField(null=True, blank=True)
+    field_map = models.ImageField(default="default_map.png", upload_to="maps/")
+    created_by = models.ForeignKey("Organizer", related_name='field_organizers', on_delete=models.SET_NULL, null=True, blank=True)
     
     class Meta:
         verbose_name = _("Field")
@@ -66,6 +68,9 @@ class Field(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse("field_detail", kwargs={"pk": self.pk})
     
     @property
     def get_api_key(self):

@@ -2,11 +2,11 @@
 {% load i18n %}
 {% block content %}
 
-    <div class="container register">
+    <div class="container register main-font">
         <h3>{% trans 'Registration' %}</h3><br/>
         {% if messages %}
             {% for message in messages %}
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-success" role="alert">
                     {{ message }}
                 </div>
             {% endfor %}

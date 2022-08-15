@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<div class='indented main-font'>
     <h1>{{ team.name }}</h1>
     <br>
     <h2>Contacts:</h2>
@@ -16,5 +16,6 @@
     </div>
 
     <a href="{% url 'teams' %}"><div style='font-size:20px'><strong>Team list</strong></div></a>
+</div>
 {% endblock %}
 

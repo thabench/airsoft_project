@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class='indented'>
+    <div class='indented main-font'>
         <h1>My Events</h1>
     {% if events %}
 
@@ -11,7 +11,7 @@
         <div><strong>Date:</strong> {{ event.date|date:"Y-m-d" }}</div>
         
         <br/>
-        <a class="btn btn-primary" href="{% url 'organizer_event' event.pk %}" role="button">See more</a>
+        <a class="btn btn-outline-info" href="{% url 'organizer_event' event.pk %}" role="button">See more</a>
     {% endfor %}
 
     {% else %}

@@ -2,7 +2,11 @@
 {% load i18n %}
 {% block content %}
 
-<div class='indented'>
+{% if user.profile.is_organizer == True %}
+<div class='create-btn'><a class="btn btn-outline-info" href="{% url 'create_field' %}">{% trans "Create new field" %}</a></div>
+{% endif %}
+
+<div class='indented main-font'>
 <h1>Field list</h1>
 {% if fields %}
 <div>
@@ -14,6 +18,11 @@
 {% else %}
 <div> No fields yet </div>
 {% endif %}
+
+{% if user.profile.is_organizer == True %}
+    <a class="btn btn-outline-secondary" href="{% url 'organizer_fields' %}">{% trans "My added fields" %}</a>
+{% endif %}
+
 </div>
 
 {% endblock %}
