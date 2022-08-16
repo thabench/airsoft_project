@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="container register main-font">
+        <h3>{% trans 'Update Team' %}</h3><br/>
+        <div class="content-section main-font" style='padding-left:10%; padding-right:10%'>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">{% trans 'Team name' %}</label>
+                    <input name="name" type="text" class="form-control" id="name" value="{%if team.name %} {{team.name}} {% endif %}">
+                </div>
+                <div class="form-group">
+                    <label for="contacts">{% trans 'Contacts' %}</label>
+                    <input name="contacts" type="text" class="form-control" id="contacts" aria-describedby="contactsHelp" value="{%if team.contacts %} {{team.contacts}} {% endif %}">
+                    <small id="contactsHelp" class="form-text text-muted">{% trans 'Address, phone, email, etc.' %}.</small>
+                </div>
+                <button type="submit" class="btn btn-primary register-button">{% trans 'Update' %}</button>
+            </form>
+    </div>
+{% endblock content %}

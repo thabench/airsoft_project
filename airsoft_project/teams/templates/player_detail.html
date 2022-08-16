@@ -6,7 +6,7 @@
         <h1>{{ player.n_name }}</h1>
         <br>
         <h2>Details:</h2>
-        <div>User: {{ player.user }}</div>
+        <div>User: {{ player.profile.user }}</div>
         <div>Hometown: {{ player.player_from }}</div>
         <div>Date of birth: {{ player.date_of_birth|date:'Y-m-d' }}</div>
         <div>Team: <a href="{% url 'team_detail' player.team.id %}"> {{ player.team }}</a></div>

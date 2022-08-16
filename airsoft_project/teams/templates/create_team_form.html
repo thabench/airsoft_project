@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+    <div class="container register main-font">
+        <h3>{% trans 'Create new Team' %}</h3><br/>
+        {% if user.profile.player.team.name != 'No Team' %}
+        <h4 class='alert alert-danger'>!!! BY CREATING NEW TEAM YOU WILL LEAVE YOUR CURRENT TEAM !!!</h4>
+        {% endif %}
+
+        <div class="content-section main-font" style='padding-left:10%; padding-right:10%'>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">{% trans 'Team name' %}</label>
+                    <input name="name" type="text" class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="contacts">{% trans 'Contacts' %}</label>
+                    <input name="contacts" type="text" class="form-control" id="contacts" aria-describedby="contactsHelp">
+                    <small id="contactsHelp" class="form-text text-muted">{% trans 'Address, phone, email, etc.' %}.</small>
+                </div>
+                <button type="submit" class="btn btn-primary register-button">{% trans 'Create' %}</button>
+            </form>
+    </div>
+{% endblock content %}

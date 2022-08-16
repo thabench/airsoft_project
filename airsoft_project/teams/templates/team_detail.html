@@ -3,18 +3,31 @@
 {% block content %}
 <div class='indented main-font'>
     <h1>{{ team.name }}</h1>
+
+    {% if user.profile.player.team == team %}
+        {% if user.profile.player.team_leader == True %}
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'update_team' team.pk %}">Update team</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'delete_team' team.pk %}">Delete</a>
+        {% endif %}
+    {% endif %}
+    <br>
     <br>
     <h2>Contacts:</h2>
     <div>{{ team.contacts }}</div>
     <hr>
     <h3>Team players:</h3>
     <div>
-    {% for i in team.team_players.all %}
-    <a href="{% url 'player_detail' i.pk %}"><div>{{ i.n_name }} {{i.pk}} </div></a>
-    {% endfor %}
+
+    {% if team.players.all %}
+        {% for i in team.players.all %}
+        <a href="{% url 'player_detail' i.pk %}"><div>{{ i.n_name }}</div></a>
+        {% endfor %}
+    {% else %}
+        <div>No players in team yet</div>
+    {% endif %}
     <br>
     </div>
-
+    
     <a href="{% url 'teams' %}"><div style='font-size:20px'><strong>Team list</strong></div></a>
 </div>
 {% endblock %}

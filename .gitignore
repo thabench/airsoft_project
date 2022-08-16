@@ -435,3 +435,15 @@ venv/Lib/site-packages/django_crispy_forms-1.14.0.dist-info/RECORD
 venv/Lib/site-packages/django_crispy_forms-1.14.0.dist-info/REQUESTED
 venv/Lib/site-packages/django_crispy_forms-1.14.0.dist-info/top_level.txt
 venv/Lib/site-packages/django_crispy_forms-1.14.0.dist-info/WHEEL
+airsoft_project/teams/migrations/0002_team_team_leaders.py
+airsoft_project/teams/migrations/0003_remove_team_team_leaders_team_team_leader.py
+airsoft_project/teams/migrations/0004_remove_team_team_leader_alter_player_team.py
+airsoft_project/teams/migrations/0005_alter_player_team.py
+airsoft_project/teams/migrations/0006_team_players_alter_player_team.py
+airsoft_project/teams/migrations/0007_remove_team_players_alter_player_team.py
+airsoft_project/teams/migrations/__pycache__/0002_team_team_leaders.cpython-310.pyc
+airsoft_project/teams/migrations/__pycache__/0003_remove_team_team_leaders_team_team_leader.cpython-310.pyc
+airsoft_project/teams/migrations/__pycache__/0004_remove_team_team_leader_alter_player_team.cpython-310.pyc
+airsoft_project/teams/migrations/__pycache__/0005_alter_player_team.cpython-310.pyc
+airsoft_project/teams/migrations/__pycache__/0006_team_players_alter_player_team.cpython-310.pyc
+airsoft_project/teams/migrations/__pycache__/0007_remove_team_players_alter_player_team.cpython-310.pyc

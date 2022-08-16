@@ -7,8 +7,8 @@
     <br>
     <br>
     <div><strong>Date:</strong> {{ event.date|date:"Y-m-d H:i" }}</a></div>
-    <div><strong>Organizer:</strong> {{ event.organizer }}</div>
-    <div><strong>Field:</strong> {{ event.field }}</div>
+    <div><strong>Organizer:</strong><a href="{% url 'organizer_detail' event.organizer.pk %}">{{ event.organizer }}</a></div>
+    <div><strong>Field:</strong><a href="{% url 'field_detail' event.field.pk %}">{{ event.field }}</a></div>
     <hr>
     <div><strong>Description:</strong> {{ event.description|safe }}</div>
     <hr>

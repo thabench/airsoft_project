@@ -1,4 +1,4 @@
-from teams.models import Player
+from teams.models import Player, Team
 from events.models import Organizer, Event, Field
 from django import forms
 from django.contrib.auth.models import User
@@ -44,10 +44,8 @@ class OrganizerFieldForm(forms.ModelForm):
         model = Field
         fields = ['name', 'location_long', 'location_lat', 'description','field_map', 'created_by']   
         widgets = {'created_by': forms.HiddenInput()}
-                    
-        
-# class OrganizerFieldUpdateForm(forms.ModelForm):
-#     class Meta:
-#         model = Field
-#         fields = ['name', 'location_long', 'location_lat', 'description', 'field_map', 'created_by',]
-#         widgets = {'created_by': forms.HiddenInput()}
+
+class TeamUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Team
+        fields = ['name', 'contacts',]

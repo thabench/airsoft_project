@@ -50,7 +50,9 @@
             <center>
                 <fieldset class="form-group">
                     <legend class="border-bottom mb-4">User info</legend>
+                    <div style='padding-left:30%; padding-right:30%'>
                     {{ u_form|crispy }}
+                    </div>
                 </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Update</button>
@@ -60,6 +62,3 @@
     </div>    
 </div>
 {% endblock content %}
-
-
-{% comment %} STOP {% endcomment %}

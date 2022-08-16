@@ -152,7 +152,6 @@ class OrganizerFieldUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.
         return super().form_valid(form)
     
     def form_invalid(self, form):
-        form.instance.created_by = self.request.user.profile.organizer
         print('form invalid')
         return super().form_invalid(form)
     

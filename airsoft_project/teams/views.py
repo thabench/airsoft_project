@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from http.client import HTTPResponse
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect, get_list_or_404
 from django.views import generic
 from teams.models import Player, Team
 from events.models import Organizer
@@ -7,7 +8,8 @@ from django.contrib import messages
 from django.contrib.auth.forms import User
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.decorators import login_required
-from airsoft_project.forms import UserUpdateForm, PlayerUpdateForm, OrganizerUpdateForm
+from airsoft_project.forms import UserUpdateForm, PlayerUpdateForm, OrganizerUpdateForm, TeamUpdateForm
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 # Create your views here.
 
@@ -20,7 +22,12 @@ class PlayerListView(generic.ListView):
     model = Player
     context_object_name = 'players'
     template_name = 'players.html'
-   
+
+
+class PlayerDetailView(generic.DetailView):
+    model = Player
+    template_name = 'player_detail.html'   
+
     
 class TeamListView(generic.ListView):
     model = Team
@@ -28,14 +35,24 @@ class TeamListView(generic.ListView):
     template_name = 'teams.html'
     
     
-class PlayerDetailView(generic.DetailView):
-    model = Player
-    template_name = 'player_detail.html'
-    
-    
 class TeamDetailView(generic.DetailView):
     model = Team
     template_name = 'team_detail.html'
+
+
+class TeamUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    model = Team
+    form_class = TeamUpdateForm
+    success_url = ""
+    template_name = 'team_update_form.html'
+    
+    def form_valid(self, form):
+        return super().form_valid(form)
+    
+    def test_func(self):
+        team = self.get_object()
+        return self.request.user.profile.player.team == team
+        
     
 @csrf_protect
 def register(request):
@@ -63,20 +80,14 @@ def register(request):
                     messages.error(request, _(f'Email {email} already exists!'))
                     return redirect('register')
                 else:
-                    print(organizer)
-                    print(player)
                     new_user = User.objects.create_user(username=username, email=email, password=password)
                     if organizer == 'on':
                         new_user.profile.is_organizer = True
                         new_user.profile.save()
-                        print(f'--{new_user.username}--')
-                        print(f'-is org-{new_user.profile.is_organizer}--')
                         Organizer.objects.create(profile=new_user.profile)
                     if player == 'on':
                         new_user.profile.is_player = True
                         new_user.profile.save()
-                        print(f'--{new_user.username}--')
-                        print(f'-is play-{new_user.profile.is_player}--')
                         Player.objects.create(profile=new_user.profile)     
                     elif organizer != 'on' and player != 'on':
                         new_user.profile.is_player = True
@@ -88,6 +99,7 @@ def register(request):
             messages.error(request, _('Passwords did not match!'))
             return redirect('register')
     return render(request, 'register.html')
+
 
 @login_required
 def profile(request):
@@ -154,3 +166,47 @@ def profile(request):
             }
             
     return render(request, 'profile.html', context)
+
+@login_required
+def create_team(request):
+    if request.method == "POST":
+        
+        name = request.POST['name']
+        contacts = request.POST['contacts']
+        
+        if Team.objects.filter(name=name).exists():
+            messages.error(request, _(f'Team name {name} is already taken!'))
+            return redirect('create_team')
+        else:
+            current_player = request.user.profile.player
+            new_team = Team.objects.create(name=name, contacts=contacts)
+            current_player.team = new_team
+            current_player.team_leader = True
+            current_player.save()
+            messages.success(request, _('Team created!'))
+            return redirect('teams')
+    return render(request, 'create_team_form.html')
+
+
+@login_required
+def delete_team(request, pk):
+    
+    selected_team = get_object_or_404(Team, pk = pk)
+    default_team = get_object_or_404(Team, name = 'No Team')
+    context={'pk':pk,
+             'team':selected_team,}
+    
+    if request.method == "POST":
+        
+        # team_players = Player.objects.get(team=selected_team)
+        team_players = get_list_or_404(Player, team=selected_team)
+        print(team_players)
+        
+        for player in team_players:
+            player.team = default_team
+            player.save()
+        selected_team.delete()
+        
+        return redirect('teams')
+    
+    return render(request, "delete_team.html", context)
