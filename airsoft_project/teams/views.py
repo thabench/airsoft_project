@@ -198,7 +198,6 @@ def delete_team(request, pk):
     
     if request.method == "POST":
         
-        # team_players = Player.objects.get(team=selected_team)
         team_players = get_list_or_404(Player, team=selected_team)
         print(team_players)
         
@@ -210,3 +209,44 @@ def delete_team(request, pk):
         return redirect('teams')
     
     return render(request, "delete_team.html", context)
+
+
+@login_required
+def join_team(request, pk):
+    
+    selected_team = get_object_or_404(Team, pk = pk)
+    player = request.user.profile.player
+    context={'pk':pk,
+             'team':selected_team,
+             'player':player,}
+    
+    if request.method == "POST":
+        player.team = selected_team
+        player.team_leader = False
+        if selected_team.players.count() == 0:
+            player.team_leader = True
+        player.save()
+        
+        return redirect('teams')
+    
+    return render(request, "join_team.html", context)
+
+
+@login_required
+def leave_team(request, pk):
+    
+    selected_team = get_object_or_404(Team, pk = pk)
+    default_team = get_object_or_404(Team, name = 'No Team')
+    player = request.user.profile.player
+    context={'pk':pk,
+             'team':selected_team,
+             'player':player,}
+    
+    if request.method == "POST":
+        player.team = default_team
+        player.team_leader = False
+        player.save()
+        
+        return redirect('teams')
+    
+    return render(request, "leave_team.html", context)

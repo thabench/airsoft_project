@@ -9,6 +9,10 @@
             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'update_team' team.pk %}">Update team</a>
             <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'delete_team' team.pk %}">Delete</a>
         {% endif %}
+        <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'leave_team' team.pk %}">Leave team</a>
+    {% endif %}
+    {% if user.profile.player.team != team %}
+    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'join_team' team.pk %}">Join team</a>
     {% endif %}
     <br>
     <br>
