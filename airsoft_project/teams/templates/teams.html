@@ -12,7 +12,7 @@
     {% endif %}
 
     {% if user.profile.is_player == True %}
-        <div class='create-btn'><a class="btn btn-outline-info" href="{% url 'create_team' %}">{% trans "Create new team" %}</a></div>
+        <div class='create-btn'><a class="btn btn-outline-info main-font" style='color:beige' href="{% url 'create_team' %}">{% trans "Create new team" %}</a></div>
     {% endif %}
     <h1>Team list</h1>
     {% if teams %}

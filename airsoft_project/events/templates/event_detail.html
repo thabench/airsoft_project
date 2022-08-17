@@ -4,16 +4,23 @@
     <div class='indented main-font'>
     <h1>{{ event.name }}</h1>
     <small>Created on: {{ event.created_on|date:"Y-m-d" }}</small>
+
+    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'register_to_event' event.id %}">Register to event</a>
+    
     <br>
     <br>
     <div><strong>Date:</strong> {{ event.date|date:"Y-m-d H:i" }}</a></div>
-    <div><strong>Organizer:</strong><a href="{% url 'organizer_detail' event.organizer.pk %}">{{ event.organizer }}</a></div>
+    <div><strong>Organizer:</strong><a class='link' href="{% url 'organizer_detail' event.organizer.pk %}">{{ event.organizer }}</a></div>
     <div><strong>Field:</strong><a href="{% url 'field_detail' event.field.pk %}">{{ event.field }}</a></div>
     <hr>
     <div><strong>Description:</strong> {{ event.description|safe }}</div>
     <hr>
     <div>Maximum number of players: {{ event.max_players }}</div>
-    <div>Registered players: {{ event.registered_players }}</div>
+    {% if event.registered_players.count != 0 %}
+    <div>Registered players: {{ event.registered_players.count }}</div>
+    {% else %}
+    <div>No registered players yet</div>
+    {% endif %}
     <div>Price: {{ event.price }} €</div>
     </div>
 {% endblock %}

@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(167, 171, 139);
+    background-color: rgb(133, 140, 124);
 }
 
 .indented{
@@ -56,6 +56,12 @@ body{
     letter-spacing: 3px;
 }
 
+.secondary-font{
+    color: beige;
+    font-family:"Bebas Neue";
+    letter-spacing: 3px;
+}
+
 .create-btn{
     width: 100px;
     height: 80px;
@@ -92,4 +98,10 @@ body{
     justify-content: center;
     height: 200px;
     font-size: 25px;
+}
+
+.link, link:hover, link:focus, link:active{
+    text-decoration: none;
+    color: inherit;
+    font-size: 20px; 
 }

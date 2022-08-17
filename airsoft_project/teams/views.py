@@ -2,7 +2,7 @@ from http.client import HTTPResponse
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect, get_list_or_404
 from django.views import generic
 from teams.models import Player, Team
-from events.models import Organizer
+from events.models import Organizer, Event
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.contrib.auth.forms import User

@@ -3,7 +3,7 @@
 {% block content %}
 
 {% if user.profile.is_organizer == True %}
-<div class='create-btn'><a class="btn btn-outline-info" href="{% url 'create_field' %}">{% trans "Create new field" %}</a></div>
+<div class='create-btn'><a class="btn btn-outline-info main-font" style='color:beige' href="{% url 'create_field' %}">{% trans "Create new field" %}</a></div>
 {% endif %}
 
 <div class='indented main-font'>
@@ -11,7 +11,7 @@
 {% if fields %}
 <div>
     {% for field in fields %}
-    <a href={{ field.id }}><div> {{ field.name }} </div></a>
+    <a class='link' href={{ field.id }}><div> {{ field.name }} </div></a>
     <hr>
     {% endfor %}
 </div>

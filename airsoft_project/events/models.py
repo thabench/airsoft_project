@@ -1,4 +1,3 @@
-from email.policy import default
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
@@ -43,7 +42,6 @@ class Event(models.Model):
     description = HTMLField(null=True)
     price = models.FloatField("Price")
     max_players = models.IntegerField("Maximum player number")
-    registered_players  = models.IntegerField("Registered player number", default=0)
     created_on = models.DateTimeField(auto_now_add=True)
     
     EVENT_STATUS = (
@@ -59,13 +57,14 @@ class Event(models.Model):
         verbose_name_plural = _("Events")
 
     @property
-    def is_inactive(self):
+    def is_active(self):
         if self.date < datetime.today().replace(tzinfo=utc):
-        # if self.date and datetime.today().replace(tzinfo=utc) > self.date.replace(tzinfo=utc):
             self.status = 'i'
             self.save()
             return True
-        return False
+        else:
+            self.status = 'a'
+            return self.save() 
     
     
     

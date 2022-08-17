@@ -16,4 +16,12 @@
         <br>
         <a href="{% url 'players' %}"><div style='font-size:20px'><strong>Player list</strong></div></a>
     </div>
+
+
+    TODO <br >registered events:<br>
+{% for event in player.events.all %}
+    {{ event.name }}<br>
+{% endfor %}
+<div>{{ player.events.count }}</div>
+
 {% endblock %}

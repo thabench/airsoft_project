@@ -16,7 +16,7 @@
     <div>
     {% if organizer.event_organizers.all %}
     {% for i in organizer.event_organizers.all %}
-    <a href="{% url 'event_detail' i.pk %}"><div>{{ i.name }} ({{i.date|date:'Y-m-d'}}) </div></a>
+    <a class='link' href="{% url 'event_detail' i.pk %}"><div>{{ i.name }} ({{i.date|date:'Y-m-d'}}) </div></a>
     {% endfor %}
     {% else %}
     <div> No events yet </div>

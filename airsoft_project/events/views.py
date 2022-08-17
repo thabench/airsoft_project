@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 from django.views import generic
 from events.models import Organizer, Event, Field
 import airsoft_project.forms as my_forms
@@ -26,6 +27,7 @@ class EventListView(generic.ListView):
     model = Event
     context_object_name = 'events'
     template_name = 'event_list.html'
+    paginate_by = 6
     
 
 class FieldListView(generic.ListView):
@@ -168,3 +170,21 @@ class OrganizerFieldDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.
     def test_func(self):
         field = self.get_object()
         return self.request.user == field.created_by.profile.user
+    
+    
+@login_required
+def register_to_event(request, pk):
+    
+    selected_event = get_object_or_404(Event, pk = pk)
+    player = request.user.profile.player
+    context={'id':id,
+             'event':selected_event,
+             'player':player,}
+    
+    if request.method == "POST":
+        player.events.add(selected_event)
+        player.save()
+        
+        return redirect('event_detail', pk=pk)
+    
+    return render(request, "register_to_event.html", context)

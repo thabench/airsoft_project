@@ -1068,3 +1068,7 @@ venv/Lib/site-packages/pytz-2022.2.1.dist-info/REQUESTED
 venv/Lib/site-packages/pytz-2022.2.1.dist-info/top_level.txt
 venv/Lib/site-packages/pytz-2022.2.1.dist-info/WHEEL
 venv/Lib/site-packages/pytz-2022.2.1.dist-info/zip-safe
+airsoft_project/events/migrations/__pycache__/0005_remove_event_registered_players.cpython-310.pyc
+airsoft_project/events/migrations/0005_remove_event_registered_players.py
+airsoft_project/events/__pycache__/models.cpython-310.pyc
+airsoft_project/events/__pycache__/views.cpython-310.pyc
