@@ -5,6 +5,9 @@ from django.utils.translation import gettext_lazy as _
 from tinymce.models import HTMLField
 from teams.models import Profile
 from PIL import Image
+from datetime import datetime
+import pytz
+utc=pytz.UTC
 
 # Create your models here.
 
@@ -43,10 +46,29 @@ class Event(models.Model):
     registered_players  = models.IntegerField("Registered player number", default=0)
     created_on = models.DateTimeField(auto_now_add=True)
     
+    EVENT_STATUS = (
+        ('a', 'active'),
+        ('i', 'inactive'),
+    )
+    
+    status = models.CharField(max_length=1, choices=EVENT_STATUS, blank=True, default='a', help_text='Statusas',)
+    
     class Meta:
+        ordering = ['-date']
         verbose_name = _("Event")
         verbose_name_plural = _("Events")
 
+    @property
+    def is_inactive(self):
+        if self.date < datetime.today().replace(tzinfo=utc):
+        # if self.date and datetime.today().replace(tzinfo=utc) > self.date.replace(tzinfo=utc):
+            self.status = 'i'
+            self.save()
+            return True
+        return False
+    
+    
+    
     def __str__(self):
         return self.name
 

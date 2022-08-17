@@ -3,17 +3,17 @@ from django.views import generic
 from events.models import Organizer, Event, Field
 import airsoft_project.forms as my_forms
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from datetime import datetime
 
 # Create your views here.
 
 
 def index(request):
-    events = Event.objects.all()
-    # active_events = Event.objects.filter(status='a')
-    
+    current_month = datetime.now().month
+    events = Event.objects.filter(status='a')
     context = {'events': events,
-               
-               } #'active_events': active_events,
+               'current_month': current_month,
+               }
     
     return render(request, 'index.html', context=context)
 

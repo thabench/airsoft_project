@@ -5,15 +5,18 @@
 <div class='indented main-font'>
 <h1>Player list</h1>
 {% if players %}
-<div>
+<div class='item-block'>
     {% for player in players %}
-    <a href={{ player.id }}>
-        <img class="profile-picture" src="{{ player.picture.url }}">
-        <div> {{ player.n_name }} </div>
-    </a>
-    <div> {{ player.team }} </div>
-    <div>Games played: {{ player.games_played }} </div>
-    <br>
+    <div class='item'>
+        <div class='item-pic'>
+            <a href={{ player.id }}><img class="profile-picture" src="{{ player.picture.url }}"></a>
+        </div>
+        <div class='item-details'>
+            <a href={{ player.id }}><div> {{ player.n_name }} </div></a>    
+            <div> {{ player.team }} </div>
+            <div>Games played: {{ player.games_played }} </div>
+        </div>
+    </div>
     {% endfor %}
 </div>
 {% else %}

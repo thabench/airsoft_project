@@ -63,3 +63,33 @@ body{
     top: 12%;
     right: 50%;
 }
+
+.item-block{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    height: 100%;
+    width: 80%;
+}
+
+.item{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    height: 200px;
+}
+
+.item-pic{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    width: 200px;
+}
+
+.item-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 200px;
+    font-size: 25px;
+}

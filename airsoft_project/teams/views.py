@@ -227,7 +227,7 @@ def join_team(request, pk):
             player.team_leader = True
         player.save()
         
-        return redirect('teams')
+        return redirect('team_detail', pk=pk)
     
     return render(request, "join_team.html", context)
 
@@ -247,6 +247,6 @@ def leave_team(request, pk):
         player.team_leader = False
         player.save()
         
-        return redirect('teams')
+        return redirect('team_detail', pk=pk)
     
     return render(request, "leave_team.html", context)

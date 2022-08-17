@@ -4,20 +4,28 @@
 
 <div class='main-font'>
     <center>
-    {% if events %}
+        <div style='height:350px'>
+        {% if events %}
 
-    <h1>Events this month</h1>
-    {% for event in events %}
-    <a href="{% url 'event_detail' event.id %}"><div>{{ event }}</div></a>
-    <br>
-    {% endfor %}
+            <h1>Events this month</h1>
 
-    {% else %}
+            {% for event in events %}
+                {% if event.is_inactive == False %}
+                    {% if event.date.month == current_month %}
+                    <a href="{% url 'event_detail' event.id %}"><div>{{ event }}</div></a>
+                    <br>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
 
-    <h1>No events this month</h1>
+        {% else %}
 
-    {% endif %}
+        <h1>No events this month</h1>
+
+        {% endif %}
+        </div>
     </center>
+    <hr>
     <div>
         <center>
         <h2>Our partners</h2>
