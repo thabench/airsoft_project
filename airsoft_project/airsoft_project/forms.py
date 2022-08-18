@@ -48,4 +48,4 @@ class OrganizerFieldForm(forms.ModelForm):
 class TeamUpdateForm(forms.ModelForm):
     class Meta:
         model = Team
-        fields = ['name', 'contacts',]
+        fields = ['name', 'contacts', 'emblem',]

@@ -17,6 +17,10 @@
                     <input name="contacts" type="text" class="form-control" id="contacts" aria-describedby="contactsHelp" value="{%if team.contacts %} {{team.contacts}} {% endif %}">
                     <small id="contactsHelp" class="form-text text-muted">{% trans 'Address, phone, email, etc.' %}.</small>
                 </div>
+                <div class="form-group">
+                    <label for="emblem">{% trans 'Team emblem' %}</label>
+                    <input name="emblem" type="file" accept="image/png, image/jpeg" class="form-control" id="emblem">
+                </div>
                 <button type="submit" class="btn btn-primary register-button">{% trans 'Update' %}</button>
             </form>
     </div>

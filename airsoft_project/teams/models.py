@@ -20,6 +20,7 @@ class Team(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unique player ID')
     name = models.CharField('Name of the Team', max_length=150)
     contacts = models.CharField('contacts', max_length=150)
+    emblem = models.ImageField(default="team_default.png", upload_to="team_pics/")
     
     @classmethod
     def get_default_pk(cls):
@@ -37,11 +38,19 @@ class Team(models.Model):
     def get_absolute_url(self):
         return reverse("team_detail", kwargs={"pk": self.pk})
     
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img = Image.open(self.emblem.path)
+        if img.height > 200 or img.width > 200:
+            output_size = (200, 200)
+            img.thumbnail(output_size)
+            img.save(self.emblem.path)
+    
     
 class Player(models.Model):
     profile = models.OneToOneField('Profile', related_name='player',on_delete=models.CASCADE, null=True, blank=True)
     n_name = models.CharField('Nickname of the player', max_length=150, default="New Player")
-    picture = models.ImageField(default="defaulf.png", upload_to="profile_pics/")
+    picture = models.ImageField(default="default.png", upload_to="profile_pics/")
     team = models.ForeignKey('Team', related_name='players', on_delete=models.SET_NULL, null=True, default=Team.get_default_pk)
     events = models.ManyToManyField("events.Event", related_name='registered_players', blank=True)
     games_played = models.IntegerField(null=True, blank=True, default=0)

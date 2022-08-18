@@ -13,7 +13,7 @@ utc=pytz.UTC
 class Organizer(models.Model):
     profile = models.OneToOneField(Profile, related_name='organizer',on_delete=models.CASCADE)
     name = models.CharField('Name of the organizer', max_length=150, default='New Organizer')
-    profile_picture = models.ImageField(default="defaulf.png", upload_to="organizer_pics/")
+    profile_picture = models.ImageField(default="default.png", upload_to="organizer_pics/")
     contacts = models.CharField('Address and contacts', max_length=150)
     description = HTMLField(null=True)
     

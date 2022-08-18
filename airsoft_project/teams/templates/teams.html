@@ -18,6 +18,7 @@
     {% if teams %}
     <div>
         {% for team in teams %}
+        <div><img class="profile-picture" src="{{ team.emblem.url }}"></div>
         <a class='link' href={{ team.id }}><div> {{ team.name }} </div></a>
         <br>
         {% endfor %}

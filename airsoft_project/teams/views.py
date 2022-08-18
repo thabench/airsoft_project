@@ -173,13 +173,14 @@ def create_team(request):
         
         name = request.POST['name']
         contacts = request.POST['contacts']
+        emblem = request.FILES['emblem']
         
         if Team.objects.filter(name=name).exists():
             messages.error(request, _(f'Team name {name} is already taken!'))
             return redirect('create_team')
         else:
             current_player = request.user.profile.player
-            new_team = Team.objects.create(name=name, contacts=contacts)
+            new_team = Team.objects.create(name=name, contacts=contacts, emblem=emblem)
             current_player.team = new_team
             current_player.team_leader = True
             current_player.save()

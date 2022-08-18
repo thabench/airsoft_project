@@ -2,6 +2,7 @@
 
 {% block content %}
 <div class='indented main-font'>
+    <div><img class="profile-picture" src="{{ team.emblem.url }}"></div>
     <h1>{{ team.name }}</h1>
 
     {% if user.profile.is_player == True %}
