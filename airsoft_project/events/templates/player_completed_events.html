@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<div class='indented main-font'>
+    <div style='padding-bottom:20px'>
+        <h1 class='secondary-font'>My participated events</h1>
+        
+        <div class="pagination secondary-font">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a class='link' href="?page=1">&lArr;</a>
+                    <a class='link' href="?page={{ page_obj.previous_page_number }}">&target;</a>
+                {% endif %}
+            
+                <span class="current">
+                    {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+                </span>
+            
+                {% if page_obj.has_next %}
+                    <a class='link' href="?page={{ page_obj.next_page_number }}">&target;</a>
+                    <a class='link' href="?page={{ page_obj.paginator.num_pages }}"> &rArr;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+
+    {% if events %}
+    <div>
+        {% for event in events %}
+                <strong><a class='link' href={% url 'my_completed_event' event.id %}> <div> {{ event.name }} ({{ event.date|date:"Y-m-d" }}) </div></a></strong>
+                <div class='secondary-font'> 
+                    <div> {{ event.field }} </div>
+                    <div><strong> Created by:</strong> {{ event.organizer }}</div>
+                </div>
+                <hr>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div> No events yet </div>
+    {% endif %}
+    
+    {% if user.profile.is_organizer == True %}
+        <a class="btn btn-outline-secondary" href="{% url 'organizer_events'%}">{% trans "My events" %}</a>
+    {% endif %}
+    
+    <div class="pagination secondary-font" style='padding-top:30px'>
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a class='link' href="?page=1">&lArr;</a>
+                <a class='link' href="?page={{ page_obj.previous_page_number }}">&target;</a>
+            {% endif %}
+        
+            <span class="current">
+                {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+            </span>
+        
+            {% if page_obj.has_next %}
+                <a class='link' href="?page={{ page_obj.next_page_number }}">&target;</a>
+                <a class='link' href="?page={{ page_obj.paginator.num_pages }}"> &rArr;</a>
+            {% endif %}
+        </span>
+    </div> 
+</div>
+
+{% endblock %}

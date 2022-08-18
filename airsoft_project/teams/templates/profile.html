@@ -45,8 +45,10 @@
                         {{ p_form|crispy }}
                     </fieldset>
                     <div>
-                        <a class="btn btn-outline-secondary" href="{% url 'about' %}">My registered events</a>
-                        {% comment %} my_registered_events {% endcomment %}
+                        <a class="btn btn-outline-secondary" href="{% url 'my_registered_events' %}">My registered events</a>
+                    </div>
+                    <div>
+                        <a class="btn btn-outline-secondary" href="{% url 'my_completed_events' %}">My participated events</a>
                     </div>
                 </div>
                 {% endif %}

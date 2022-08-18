@@ -56,7 +56,6 @@ class OrganizerDetailView(generic.DetailView):
     model = Organizer
     template_name = 'organizer_detail.html'
     
-########### EVENT MANAGEMENT
 
 class OrganizerEventListView(LoginRequiredMixin, generic.ListView):
     model = Event
@@ -109,8 +108,38 @@ class OrganizerEventDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.
         return self.request.user == event.organizer.profile.user
     
     
-########### FIELD MANAGEMENT
+class PlayerEventListView(LoginRequiredMixin, generic.ListView):
+    model = Event
+    context_object_name = 'events'
+    template_name = 'player_events.html'
+    paginate_by = 4
 
+    def get_queryset(self):
+        return Event.objects.filter(registered_players=self.request.user.profile.player).filter(status = 'a')
+ 
+ 
+class PlayerEventDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Event
+    context_object_name = 'event'
+    template_name = 'player_event.html'
+    
+
+class PlayerCompletedEventListView(LoginRequiredMixin, generic.ListView):
+    model = Event
+    context_object_name = 'events'
+    template_name = 'player_completed_events.html'
+    paginate_by = 4
+
+    def get_queryset(self):
+        return Event.objects.filter(registered_players=self.request.user.profile.player).filter(status = 'i')
+ 
+ 
+class PlayerCompletedEventDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Event
+    context_object_name = 'event'
+    template_name = 'player_completed_event.html'
+    
+    
 class OrganizerFieldListView(LoginRequiredMixin, generic.ListView):
     model = Field
     context_object_name = 'fields'
