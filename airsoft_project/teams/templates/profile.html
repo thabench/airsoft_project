@@ -44,6 +44,10 @@
                         <legend class="border-bottom mb-4">Player info</legend>
                         {{ p_form|crispy }}
                     </fieldset>
+                    <div>
+                        <a class="btn btn-outline-secondary" href="{% url 'about' %}">My registered events</a>
+                        {% comment %} my_registered_events {% endcomment %}
+                    </div>
                 </div>
                 {% endif %}
             </div>
@@ -55,7 +59,7 @@
                     </div>
                 </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Update</button>
+                <button class="btn btn-outline-secondary" type="submit">Update</button>
             </div>
             </center>
         </form>

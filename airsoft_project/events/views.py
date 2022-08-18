@@ -27,7 +27,7 @@ class EventListView(generic.ListView):
     model = Event
     context_object_name = 'events'
     template_name = 'event_list.html'
-    paginate_by = 6
+    paginate_by = 4
     
 
 class FieldListView(generic.ListView):

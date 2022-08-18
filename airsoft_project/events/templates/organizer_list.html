@@ -3,24 +3,25 @@
 {% block content %}
 
 <div class='indented main-font'>
-<h1>Organizer list</h1>
+<h1 class='secondary-font'>Organizer list</h1>
 <hr>
 <hr>
 {% if organizers %}
 <div>
     {% for organizer in organizers %}
-    <a href={{organizer.id}}>
+    <a class='link' href={{organizer.id}}>
         <img class="profile-picture" src="{{ organizer.profile_picture.url }}">
         <div style='font-size:25px'> {{ organizer.name }} </div>
     </a>
-    <p style="border-top: dotted 3px;color: lightgrey;"></p>
+    <hr>
     {% if organizer.description|length > 65 %}
-        <div style='font-size:10px'> {{ organizer.description|safe|slice:65 }}... </div>
+        <div class='secondary-font' style='font-size:15px'> {{ organizer.description|safe|slice:65 }}... </div>
     {% else %}
-        <div style='font-size:10px'> {{ organizer.description|safe }} </div>
+        <div class='secondary-font' style='font-size:15px'> {{ organizer.description|safe }} </div>
     {% endif %}
     <hr>
-    <hr>
+    <p style="border-top: dotted 3px;color: lightgrey;"></p>
+    <p style="border-top: dotted 3px;color: lightgrey;"></p>
     {% endfor %}
 </div>
 {% else %}

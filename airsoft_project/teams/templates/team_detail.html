@@ -16,6 +16,7 @@
     {% endif %}
     <br>
     <br>
+    {{ user.profile.player.team.name }}
     <h2>Contacts:</h2>
     <div>{{ team.contacts }}</div>
     <hr>
@@ -24,7 +25,7 @@
 
     {% if team.players.all %}
         {% for i in team.players.all %}
-        <a href="{% url 'player_detail' i.pk %}"><div>{{ i.n_name }}</div></a>
+        <a class='link' href="{% url 'player_detail' i.pk %}"><div>{{ i.n_name }}</div></a>
         {% endfor %}
     {% else %}
         <div>No players in team yet</div>
@@ -32,7 +33,7 @@
     <br>
     </div>
     
-    <a href="{% url 'teams' %}"><div style='font-size:20px'><strong>Team list</strong></div></a>
+    <a class='link' href="{% url 'teams' %}"><div style='font-size:20px'><strong>Team list</strong></div></a>
 </div>
 {% endblock %}
 

@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class='indented main-font'>
-<h1>Player list</h1>
+<h1 class='secondary-font'>Player list</h1>
 {% if players %}
 <div class='item-block'>
     {% for player in players %}
@@ -12,9 +12,8 @@
             <a href={{ player.id }}><img class="profile-picture" src="{{ player.picture.url }}"></a>
         </div>
         <div class='item-details'>
-            <a href={{ player.id }}><div> {{ player.n_name }} </div></a>    
-            <div> {{ player.team }} </div>
-            <div>Games played: {{ player.games_played }} </div>
+            <a class='link' style='font-size:30px' href={{ player.id }}><div> {{ player.n_name }} </div></a>    
+            <div class='secondary-font'> {{ player.team }} </div>
         </div>
     </div>
     {% endfor %}

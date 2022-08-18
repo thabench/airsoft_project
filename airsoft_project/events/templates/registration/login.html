@@ -3,7 +3,7 @@
 {% block content %}
 <center>
   {% if form.errors %}
-    <p>Log in failed. Try again</p>
+    <div class='main-font' style='color:maroon'>Log in failed. Try again</div>
   {% endif %}
   
   {% if next %}
@@ -14,17 +14,17 @@
   <div style='padding-top:50px'>
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
-    <div>Username</div>
+    <div class='secondary-font'>Username</div>
     <div>{{ form.username }}</div>
     <br>
-    <div>Password</div>
+    <div class='secondary-font'>Password</div>
     <div>{{ form.password }}</div>
     <br>
-    <button class="btn btn-default btn-lg" type="submit">Log in</button>
+    <button class="btn btn-outline-secondary secondary-font" type="submit">Log in</button>
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
   <br><br>
-  <p><a href="{% url 'password_reset' %}">Forgot password?</a></p>
+  <p><a class='main-font link' style='color:beige' href="{% url 'password_reset' %}">Forgot password?</a></p>
 </div>
 </center>
 {% endblock %}

@@ -14,11 +14,11 @@
     {% if user.profile.is_player == True %}
         <div class='create-btn'><a class="btn btn-outline-info main-font" style='color:beige' href="{% url 'create_team' %}">{% trans "Create new team" %}</a></div>
     {% endif %}
-    <h1>Team list</h1>
+    <h1 class='secondary-font'>Team list</h1>
     {% if teams %}
     <div>
         {% for team in teams %}
-        <a href={{ team.id }}><div> {{ team.name }} </div></a>
+        <a class='link' href={{ team.id }}><div> {{ team.name }} </div></a>
         <br>
         {% endfor %}
     </div>
