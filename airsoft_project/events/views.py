@@ -5,6 +5,7 @@ from events.models import Organizer, Event, Field
 import airsoft_project.forms as my_forms
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from datetime import datetime
+from django.db.models import Q
 
 # Create your views here.
 
@@ -217,3 +218,9 @@ def register_to_event(request, pk):
         return redirect('event_detail', pk=pk)
     
     return render(request, "register_to_event.html", context)
+
+
+def search_events(request):
+    query = request.GET.get('query')
+    search_results = Event.objects.filter(Q(name__icontains=query) | Q(organizer__name__icontains=query))
+    return render(request, 'search_events.html', {'events': search_results, 'query': query})

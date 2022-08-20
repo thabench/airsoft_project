@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(133, 140, 124);
+    background-color: rgb(174, 180, 166);
 }
 
 .indented{
@@ -63,7 +63,7 @@ body{
 }
 
 .secondary-font{
-    color: beige;
+    color: rgb(92, 106, 86);
     font-family:"Bebas Neue";
     letter-spacing: 3px;
 }
@@ -106,8 +106,49 @@ body{
     font-size: 25px;
 }
 
-.link, link:hover, link:focus, link:active{
+.link{
     text-decoration: none;
     color: inherit;
-    font-size: 20px; 
+    font-size: 20px;
+    -webkit-transition: 0.5s; 
+}
+
+.link:hover{
+    text-decoration: none;
+    letter-spacing: 4px;
+    color: rgb(236, 236, 162);
+    -webkit-transition: 0.5s;
+}
+
+.search-bar{
+    background-color:transparent;
+    margin-bottom: 30px;
+    border: none;
+    -webkit-transition: 0.5s;
+}
+
+.search-bar:focus {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    
+}
+
+.search-bar:hover {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    letter-spacing: 5px;
+    -webkit-transition: 0.5s;
+}
+
+.search-results{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    gap: 20px;
+    height: 50px;
+    
 }

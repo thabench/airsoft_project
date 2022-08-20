@@ -25,7 +25,7 @@ class Team(models.Model):
     @classmethod
     def get_default_pk(cls):
         team, created = cls.objects.get_or_create(
-            name='No Team', defaults=dict(contacts='-'))
+            name='No Team', defaults=dict(contacts='infoairsoftevents@gmail.com'))
         return team.pk
         
     class Meta:

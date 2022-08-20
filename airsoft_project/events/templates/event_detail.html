@@ -5,16 +5,19 @@
     <h1 class='secondary-font'>{{ event.name }}</h1>
     <small>Created on: {{ event.created_on|date:"Y-m-d" }}</small>
     
-    {% if user.profile.is_player == True %}
-        {% if user.profile.player in event.registered_players.all %}
-        <h4 class='secondary-font'> You are registered to this event </h4>
-        {% else %}
-        <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'register_to_event' event.id %}">Register to event</a>
+    {% if event.status == 'a' %}
+        {% if user.profile.is_player == True %}
+            {% if user.profile.player in event.registered_players.all %}
+            <h4 class='secondary-font'> You are registered to this event </h4>
+            {% else %}
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'register_to_event' event.id %}">Register to event</a>
+            {% endif %}
         {% endif %}
     {% endif %}
-    
+
     <br>
-    <div><strong>Date:</strong> {{ event.date|date:"Y-m-d H:i" }}</a></div>
+    <div><strong>Date:</strong> {{ event.date|date:"Y-m-d" }}</a></div>
+    <div><strong>Time:</strong> {{ event.time|date:'H:i' }}</a></div>
     <div><strong>Organizer:</strong><a class='link' href="{% url 'organizer_detail' event.organizer.pk %}">{{ event.organizer }}</a></div>
     <div><strong>Field:</strong><a class='link' href="{% url 'field_detail' event.field.pk %}">{{ event.field }}</a></div>
     <hr>

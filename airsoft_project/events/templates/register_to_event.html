@@ -6,7 +6,7 @@
 
     <center>    
     <div class="content-section main-font">
-        {% if user.profile.is_player == True %}
+        {% if user.profile.is_organizer == True and user.profile.is_player == False %}
             <div>Only players can register to events</div>
         {% else %}
             <form method="POST">

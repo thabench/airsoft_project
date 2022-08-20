@@ -26,4 +26,5 @@ urlpatterns = [
     path('my_fields/new', views.OrganizerFieldCreateView.as_view(), name='create_field'),
     path('my_fields/<int:pk>/update', views.OrganizerFieldUpdateView.as_view(), name='update_field'),
     path('my_fields/<int:pk>/delete', views.OrganizerFieldDeleteView.as_view(), name='delete_field'),
+    path('search_events/', views.search_events, name='search_events'),
 ]

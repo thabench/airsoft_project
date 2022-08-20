@@ -10,7 +10,7 @@
             <h1 class='secondary-font'>Events this month</h1>
 
             {% for event in events %}
-                {% if event.is_active != True %}
+                {% if event.status == 'a' %}
                     <div style='width:10%'>
                     {% if event.date.month == current_month %}
                     <a class='link' href="{% url 'event_detail' event.id %}"><div>{{ event }}</div></a>

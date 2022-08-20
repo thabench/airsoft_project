@@ -2,7 +2,7 @@ from teams.models import Player, Team
 from events.models import Organizer, Event, Field
 from django import forms
 from django.contrib.auth.models import User
-
+        
 
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()
@@ -28,15 +28,17 @@ class OrganizerUpdateForm(forms.ModelForm):
 class OrganizerEventCreateForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ['name', 'date', 'field', 'description', 'price', 'max_players',]
-        widgets = {'date': forms.DateInput(attrs={'type': 'date'}, format=('%Y-%m-%d'))}
+        fields = ['name', 'date', 'time', 'field', 'description', 'price', 'max_players',]
+        widgets = {'date': forms.DateInput(attrs={'type': 'date'}),
+                   'time': forms.TimeInput(attrs={'type': 'time'})}
         
         
 class OrganizerEventUpdateForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ['name', 'date', 'field', 'description', 'price', 'max_players']
-        widgets = {'date': forms.DateInput(attrs={'type': 'date'}, format=('%Y-%m-%d'))}
+        fields = ['name', 'date', 'time', 'field', 'description', 'price', 'max_players']
+        widgets = {'date': forms.DateInput(attrs={'type': 'date'}),
+                   'time': forms.TimeInput(attrs={'type': 'time'})}
         
         
 class OrganizerFieldForm(forms.ModelForm):

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class='indented main-font'>
+  <center>
+    <h1>Search for "{{ query }}" results:</h1>
+  </center>
+  </br>
+  {% if teams %}
+    {% for team in teams %}
+      <div class='search-results'>
+        <div><a class='link' href="{% url 'team_detail' team.pk %}">{{ team.name }}</a></div>
+        {% if team.players.all.count == 1 %} 
+        <div class='secondary-font'>{{team.players.all.count}} Player</div>
+        {% else %}
+        <div class='secondary-font'>{{team.players.all.count}} Players</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  {% else %}
+    <div>No match for {{ query }}</div>
+  {% endif %}
+  <hr>
+  <center>
+    <a class='link'style='color:beige' href="{% url 'teams' %}"><div style='font-size:20px'><strong>Team list</strong></div></a>
+  </center>
+</div>
+
+  {% endblock %}

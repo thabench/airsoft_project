@@ -8,8 +8,17 @@
 
 <div class='indented main-font'>
     <div style='padding-bottom:20px'>
+
         <h1 class='secondary-font'>Event list</h1>
         
+        <center>
+            <div>
+                <form action="{% url 'search_events' %}" method="get" >
+                <input name="query" class="search-bar secondary-font" type="text" placeholder="Search for events">
+                </form>
+            </div>
+        </center>
+
         <div class="pagination secondary-font">
             <span class="step-links">
                 {% if page_obj.has_previous %}
@@ -30,19 +39,21 @@
     </div>
     
     {% if events %}
-    <div>
-        {% for event in events %}
-        
-        <strong><a class='link' href={{ event.id }}> <div> {{ event.name }} ({{ event.date|date:"Y-m-d" }}) </div></a></strong>
-        <div class='secondary-font'> 
-            <div> {{ event.field }} </div>
-            <div><strong> Created by:</strong> {{ event.organizer }}</div>
+        <div style='width:20%'>
+            {% for event in events %}
+                {% if event.is_active == True %}
+                    <div></div>
+                {% endif %}
+                <strong><a class='link' href={{ event.id }}> <div> {{ event.name }} ({{ event.date|date:"Y-m-d" }}) </div></a></strong>
+                <div class='secondary-font'> 
+                    <div> {{ event.field }} </div>
+                    <div><strong> Created by:</strong> {{ event.organizer }}</div>
+                </div>
+                <hr>
+            {% endfor %}
         </div>
-        <hr>
-        {% endfor %}
-    </div>
     {% else %}
-    <div> No events yet </div>
+        <div> No events yet </div>
     {% endif %}
     
     {% if user.profile.is_organizer == True %}

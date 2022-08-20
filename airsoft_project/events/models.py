@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from tinymce.models import HTMLField
 from teams.models import Profile
 from PIL import Image
-from datetime import datetime
+from datetime import datetime, date
 import pytz
 utc=pytz.UTC
 
@@ -36,7 +36,8 @@ class Organizer(models.Model):
     
 class Event(models.Model):
     name = models.CharField('Name of the event',  max_length=150)
-    date = models.DateTimeField('Date of event', null=True, blank=True)
+    date = models.DateField('Date of event', null=True, blank=True)
+    time = models.TimeField('Time of event', null=True, blank=True, help_text='i.e.: 12:00 PM')
     organizer = models.ForeignKey("Organizer", related_name='event_organizers', on_delete=models.SET_NULL, null=True)
     field = models.ForeignKey('Field', on_delete=models.SET_NULL, null=True)
     description = HTMLField(null=True)
@@ -49,7 +50,7 @@ class Event(models.Model):
         ('i', 'inactive'),
     )
     
-    status = models.CharField(max_length=1, choices=EVENT_STATUS, blank=True, default='a', help_text='Statusas',)
+    status = models.CharField(max_length=1, choices=EVENT_STATUS, blank=True, default='a', help_text='Status',)
     
     class Meta:
         ordering = ['-date']
@@ -58,13 +59,13 @@ class Event(models.Model):
 
     @property
     def is_active(self):
-        if self.date < datetime.today().replace(tzinfo=utc):
+        if self.date < date.today():
             self.status = 'i'
-            self.save()
-            return True
-        else:
+            return self.save()
+        elif self.date > date.today():
             self.status = 'a'
-            return self.save() 
+            self.save()
+            return True 
     
     
     

@@ -10,6 +10,7 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.decorators import login_required
 from airsoft_project.forms import UserUpdateForm, PlayerUpdateForm, OrganizerUpdateForm, TeamUpdateForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.db.models import Q
 
 # Create your views here.
 
@@ -251,3 +252,15 @@ def leave_team(request, pk):
         return redirect('team_detail', pk=pk)
     
     return render(request, "leave_team.html", context)
+
+
+def search_teams(request):
+    query = request.GET.get('query')
+    search_results = Team.objects.filter(Q(name__icontains=query))
+    return render(request, 'search_teams.html', {'teams': search_results, 'query': query})
+
+
+def search_players(request):
+    query = request.GET.get('query')
+    search_results = Player.objects.filter(Q(n_name__icontains=query) | Q(team__name__icontains=query))
+    return render(request, 'search_players.html', {'players': search_results, 'query': query})
