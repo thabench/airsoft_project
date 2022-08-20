@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class='indented main-font'>
+  <center>
+    <h1>Search for "{{ query }}" results:</h1>
+  </center>
+  </br>
+  {% if events %}
+    {% for event in events %}
+      <div class='search-results'>
+        <div><a class='link' href="{% url 'event_detail' event.id %}">{{ event.name }}</a></div> 
+        <div class='secondary-font'>({{event.organizer}})</div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <div>No match for {{ query }}</div>
+  {% endif %}
+  <hr>
+  <center>
+    <a class='link'style='color:beige' href="{% url 'organizer_events' %}"><div style='font-size:20px'><strong>Event list</strong></div></a>
+  </center>
+</div>
+
+  {% endblock %}

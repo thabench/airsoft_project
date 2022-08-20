@@ -35,12 +35,14 @@ class FieldListView(generic.ListView):
     model = Field
     context_object_name = 'fields'
     template_name = 'field_list.html'
+    paginate_by = 4
     
     
 class OrganizerListView(generic.ListView):
     model = Organizer
     context_object_name = 'organizers'
     template_name = 'organizer_list.html'
+    paginate_by = 4
     
 
 class EventDetailView(generic.DetailView):
@@ -62,6 +64,7 @@ class OrganizerEventListView(LoginRequiredMixin, generic.ListView):
     model = Event
     context_object_name = 'events'
     template_name = 'organizer_events.html'
+    paginate_by = 4
 
     def get_queryset(self):
         return Event.objects.filter(organizer=self.request.user.profile.organizer)
@@ -145,6 +148,7 @@ class OrganizerFieldListView(LoginRequiredMixin, generic.ListView):
     model = Field
     context_object_name = 'fields'
     template_name = 'organizer_fields.html'
+    paginate_by = 4
 
     def get_queryset(self):
         return Field.objects.filter(created_by=self.request.user.profile.organizer)
@@ -224,3 +228,9 @@ def search_events(request):
     query = request.GET.get('query')
     search_results = Event.objects.filter(Q(name__icontains=query) | Q(organizer__name__icontains=query))
     return render(request, 'search_events.html', {'events': search_results, 'query': query})
+
+
+def search_by_date(request):
+    query = request.GET.get('query')
+    search_results = Event.objects.filter(organizer=request.user.profile.organizer).filter(Q(date__contains=query))
+    return render(request, 'search_events_by_date.html', {'events': search_results, 'query': query})

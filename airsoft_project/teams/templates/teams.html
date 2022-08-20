@@ -24,6 +24,25 @@
         </div>
     </center>
 
+    <div class="pagination secondary-font">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a class='link' href="?page=1">&lArr;</a>
+                <a class='link' href="?page={{ page_obj.previous_page_number }}">&target;</a>
+            {% endif %}
+        
+            <span class="current">
+                {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+            </span>
+        
+            {% if page_obj.has_next %}
+                <a class='link' href="?page={{ page_obj.next_page_number }}">&target;</a>
+                <a class='link' href="?page={{ page_obj.paginator.num_pages }}"> &rArr;</a>
+            {% endif %}
+        </span>
+    </div>
+    <br>
+
     {% if teams %}
     <div>
         {% for team in teams %}
@@ -35,6 +54,26 @@
     {% else %}
     <div> No teams yet </div>
     {% endif %}
+    
+    <br>
+    <div class="pagination secondary-font">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a class='link' href="?page=1">&lArr;</a>
+                <a class='link' href="?page={{ page_obj.previous_page_number }}">&target;</a>
+            {% endif %}
+        
+            <span class="current">
+                {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+            </span>
+        
+            {% if page_obj.has_next %}
+                <a class='link' href="?page={{ page_obj.next_page_number }}">&target;</a>
+                <a class='link' href="?page={{ page_obj.paginator.num_pages }}"> &rArr;</a>
+            {% endif %}
+        </span>
+    </div>
+    
 </div>
 
 {% endblock %}

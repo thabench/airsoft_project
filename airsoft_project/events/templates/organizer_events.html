@@ -1,8 +1,37 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
     <div class='indented main-font'>
         <h1>My Events</h1>
+
+        <center>
+            <div>
+                <form action="{% url 'search_events_by_date' %}" method="get" >
+                <input name="query" class="search-bar secondary-font" type="date" placeholder="Search for events by date">
+                <button type="submit" class="btn btn-outline-secondary secondary-font">{% trans 'Search' %}</button>
+                </form>
+            </div>
+        </center>
+
+        <div class="pagination secondary-font">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a class='link' href="?page=1">&lArr;</a>
+                    <a class='link' href="?page={{ page_obj.previous_page_number }}">&target;</a>
+                {% endif %}
+            
+                <span class="current">
+                    {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+                </span>
+            
+                {% if page_obj.has_next %}
+                    <a class='link' href="?page={{ page_obj.next_page_number }}">&target;</a>
+                    <a class='link' href="?page={{ page_obj.paginator.num_pages }}"> &rArr;</a>
+                {% endif %}
+            </span>
+        </div>
+        <br>
+
     {% if events %}
 
     {% for event in events %}
@@ -17,5 +46,27 @@
     {% else %}
         <p>There are no events created</p>
     {% endif %}
+
+    <br>
+    <br>
+    <div class="pagination secondary-font">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a class='link' href="?page=1">&lArr;</a>
+                <a class='link' href="?page={{ page_obj.previous_page_number }}">&target;</a>
+            {% endif %}
+        
+            <span class="current">
+                {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+            </span>
+        
+            {% if page_obj.has_next %}
+                <a class='link' href="?page={{ page_obj.next_page_number }}">&target;</a>
+                <a class='link' href="?page={{ page_obj.paginator.num_pages }}"> &rArr;</a>
+            {% endif %}
+        </span>
+    </div>
+    
+
     </div>
 {% endblock %}

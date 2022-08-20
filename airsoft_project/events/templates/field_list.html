@@ -3,25 +3,65 @@
 {% block content %}
 
 {% if user.profile.is_organizer == True %}
-<div class='create-btn'><a class="btn btn-outline-info main-font" style='color:beige' href="{% url 'create_field' %}">{% trans "Create new field" %}</a></div>
+    <div class='create-btn'><a class="btn btn-outline-info main-font" style='color:beige' href="{% url 'create_field' %}">{% trans "Create new field" %}</a></div>
 {% endif %}
 
 <div class='indented main-font'>
-<h1 class='secondary-font'>Field list</h1>
-{% if fields %}
-<div>
-    {% for field in fields %}
-    <a class='link' href={{ field.id }}><div> {{ field.name }} </div></a>
-    <hr>
-    {% endfor %}
-</div>
-{% else %}
-<div> No fields yet </div>
-{% endif %}
+    <h1 class='secondary-font'>Field list</h1>
 
-{% if user.profile.is_organizer == True %}
-    <a class="btn btn-outline-secondary" href="{% url 'organizer_fields' %}">{% trans "My added fields" %}</a>
-{% endif %}
+    <div class="pagination secondary-font">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a class='link' href="?page=1">&lArr;</a>
+                <a class='link' href="?page={{ page_obj.previous_page_number }}">&target;</a>
+            {% endif %}
+        
+            <span class="current">
+                {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+            </span>
+        
+            {% if page_obj.has_next %}
+                <a class='link' href="?page={{ page_obj.next_page_number }}">&target;</a>
+                <a class='link' href="?page={{ page_obj.paginator.num_pages }}"> &rArr;</a>
+            {% endif %}
+        </span>
+    </div>
+    <br>
+
+    {% if fields %}
+        <div>
+            {% for field in fields %}
+                <a class='link' href={{ field.id }}><div> {{ field.name }} </div></a>
+                <hr>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div> No fields yet </div>
+    {% endif %}
+
+    {% if user.profile.is_organizer == True %}
+        <a class="btn btn-outline-secondary" href="{% url 'organizer_fields' %}">{% trans "My added fields" %}</a>
+    {% endif %}
+
+    <br>
+    <div class="pagination secondary-font">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a class='link' href="?page=1">&lArr;</a>
+                <a class='link' href="?page={{ page_obj.previous_page_number }}">&target;</a>
+            {% endif %}
+        
+            <span class="current">
+                {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+            </span>
+        
+            {% if page_obj.has_next %}
+                <a class='link' href="?page={{ page_obj.next_page_number }}">&target;</a>
+                <a class='link' href="?page={{ page_obj.paginator.num_pages }}"> &rArr;</a>
+            {% endif %}
+        </span>
+    </div>
+    
 
 </div>
 

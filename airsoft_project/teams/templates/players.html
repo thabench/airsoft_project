@@ -3,33 +3,71 @@
 {% block content %}
 
 <div class='indented main-font'>
-<h1 class='secondary-font'>Player list</h1>
+    <h1 class='secondary-font'>Player list</h1>
 
-<center>
-    <div>
-        <form action="{% url 'search_players' %}" method="get" >
-        <input name="query" class="search-bar secondary-font" type="text" placeholder="Search for players">
-        </form>
-    </div>
-</center>
+    <center>
+        <div>
+            <form action="{% url 'search_players' %}" method="get" >
+            <input name="query" class="search-bar secondary-font" type="text" placeholder="Search for players">
+            </form>
+        </div>
+    </center>
 
-{% if players %}
-<div class='item-block'>
-    {% for player in players %}
-    <div class='item'>
-        <div class='item-pic'>
-            <a href={{ player.id }}><img class="profile-picture" src="{{ player.picture.url }}"></a>
-        </div>
-        <div class='item-details'>
-            <a class='link' style='font-size:30px' href={{ player.id }}><div> {{ player.n_name }} </div></a>    
-            <div class='secondary-font'> {{ player.team }} </div>
-        </div>
+    <div class="pagination secondary-font">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a class='link' href="?page=1">&lArr;</a>
+                <a class='link' href="?page={{ page_obj.previous_page_number }}">&target;</a>
+            {% endif %}
+        
+            <span class="current">
+                {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+            </span>
+        
+            {% if page_obj.has_next %}
+                <a class='link' href="?page={{ page_obj.next_page_number }}">&target;</a>
+                <a class='link' href="?page={{ page_obj.paginator.num_pages }}"> &rArr;</a>
+            {% endif %}
+        </span>
     </div>
-    {% endfor %}
-</div>
-{% else %}
-<div> No players yet </div>
-{% endif %}
+    <br>
+
+    {% if players %}
+    <div class='item-block'>
+        {% for player in players %}
+        <div class='item'>
+            <div class='item-pic'>
+                <a href={{ player.id }}><img class="profile-picture" src="{{ player.picture.url }}"></a>
+            </div>
+            <div class='item-details'>
+                <a class='link' style='font-size:30px' href={{ player.id }}><div> {{ player.n_name }} </div></a>    
+                <div class='secondary-font'> {{ player.team }} </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div> No players yet </div>
+    {% endif %}
+    
+    <br>
+    <div class="pagination secondary-font">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a class='link' href="?page=1">&lArr;</a>
+                <a class='link' href="?page={{ page_obj.previous_page_number }}">&target;</a>
+            {% endif %}
+        
+            <span class="current">
+                {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+            </span>
+        
+            {% if page_obj.has_next %}
+                <a class='link' href="?page={{ page_obj.next_page_number }}">&target;</a>
+                <a class='link' href="?page={{ page_obj.paginator.num_pages }}"> &rArr;</a>
+            {% endif %}
+        </span>
+    </div>
 </div>
 
 {% endblock %}

@@ -23,6 +23,7 @@ class PlayerListView(generic.ListView):
     model = Player
     context_object_name = 'players'
     template_name = 'players.html'
+    paginate_by = 4
 
 
 class PlayerDetailView(generic.DetailView):
@@ -34,6 +35,7 @@ class TeamListView(generic.ListView):
     model = Team
     context_object_name = 'teams'
     template_name = 'teams.html'
+    paginate_by = 4
     
     
 class TeamDetailView(generic.DetailView):
