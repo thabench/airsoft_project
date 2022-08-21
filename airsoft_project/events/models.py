@@ -11,10 +11,10 @@ utc=pytz.UTC
 # Create your models here.
 
 class Organizer(models.Model):
-    profile = models.OneToOneField(Profile, related_name='organizer',on_delete=models.CASCADE)
-    name = models.CharField('Name of the organizer', max_length=150, default='New Organizer')
+    profile = models.OneToOneField(Profile, help_text=_('Profile'), related_name='organizer',on_delete=models.CASCADE)
+    name = models.CharField(_('Name of the organizer'), max_length=150, default=_('New Organizer'))
     profile_picture = models.ImageField(default="default.png", upload_to="organizer_pics/")
-    contacts = models.CharField('Address and contacts', max_length=150)
+    contacts = models.CharField(_('Address and contacts'), max_length=150)
     description = HTMLField(null=True)
     
         
@@ -35,14 +35,14 @@ class Organizer(models.Model):
     
     
 class Event(models.Model):
-    name = models.CharField('Name of the event',  max_length=150)
-    date = models.DateField('Date of event', null=True, blank=True)
-    time = models.TimeField('Time of event', null=True, blank=True, help_text='i.e.: 12:00 PM')
-    organizer = models.ForeignKey("Organizer", related_name='event_organizers', on_delete=models.SET_NULL, null=True)
-    field = models.ForeignKey('Field', on_delete=models.SET_NULL, null=True)
-    description = HTMLField(null=True)
-    price = models.FloatField("Price")
-    max_players = models.IntegerField("Maximum player number")
+    name = models.CharField(_('Name of the event'),  max_length=150)
+    date = models.DateField(_('Date of event'), null=True, blank=True)
+    time = models.TimeField(_('Time of event'), null=True, blank=True, help_text=_('i.e.: 12:00 PM'))
+    organizer = models.ForeignKey("Organizer", help_text=_("Organizer"), related_name='event_organizers', on_delete=models.SET_NULL, null=True)
+    field = models.ForeignKey('Field', help_text=_("Field"), on_delete=models.SET_NULL, null=True)
+    description = HTMLField(help_text=_("Field"), null=True)
+    price = models.FloatField(_("Price"))
+    max_players = models.IntegerField(_("Maximum player number"))
     created_on = models.DateTimeField(auto_now_add=True)
     
     EVENT_STATUS = (
@@ -50,7 +50,7 @@ class Event(models.Model):
         ('i', 'inactive'),
     )
     
-    status = models.CharField(max_length=1, choices=EVENT_STATUS, blank=True, default='a', help_text='Status',)
+    status = models.CharField(max_length=1, choices=EVENT_STATUS, blank=True, default='a', help_text=_('Status'),)
     
     class Meta:
         ordering = ['-date']
@@ -77,12 +77,12 @@ class Event(models.Model):
     
     
 class Field(models.Model):
-    name = models.CharField('Name of the game field',  max_length=150)
-    location_long = models.FloatField('Location longitude', max_length=50, null=True)
-    location_lat = models.FloatField('Location latitude', max_length=50, null=True)
+    name = models.CharField(_('Name of the game field'),  max_length=150)
+    location_long = models.FloatField(_('Location longitude'), max_length=50, null=True)
+    location_lat = models.FloatField(_('Location latitude'), max_length=50, null=True)
     description = HTMLField(null=True, blank=True)
     field_map = models.ImageField(default="default_map.png", upload_to="maps/")
-    created_by = models.ForeignKey("Organizer", related_name='field_organizers', on_delete=models.SET_NULL, null=True, blank=True)
+    created_by = models.ForeignKey("Organizer", help_text=_("Organizer"), related_name='field_organizers', on_delete=models.SET_NULL, null=True, blank=True)
     
     class Meta:
         verbose_name = _("Field")

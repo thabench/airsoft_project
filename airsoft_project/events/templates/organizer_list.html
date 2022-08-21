@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class='indented main-font'>
-<h1 class='secondary-font'>Organizer list</h1>
+<h1 class='secondary-font'>{% trans "Organizer list" %}</h1>
 <hr>
 <hr>
 {% if organizers %}
@@ -25,7 +25,7 @@
     {% endfor %}
 </div>
 {% else %}
-<div> No organizers yet </div>
+<div> {% trans "No organizers yet" %} </div>
 {% endif %}
 </div>
 

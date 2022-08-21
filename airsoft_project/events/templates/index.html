@@ -7,11 +7,11 @@
         <div>
         {% if events %}
 
-            <h1 class='secondary-font'>Events this month</h1>
+            <h1 class='secondary-font'>{% trans "Events this month" %}</h1>
 
             {% for event in events %}
                 {% if event.status == 'a' %}
-                    <div style='width:10%'>
+                    <div style='width:15%'>
                     {% if event.date.month == current_month %}
                     <a class='link' href="{% url 'event_detail' event.id %}"><div>{{ event }}</div></a>
                     <br>
@@ -22,7 +22,7 @@
 
         {% else %}
 
-        <h1>No events this month</h1>
+        <h1>{% trans "No events this month" %}</h1>
 
         {% endif %}
         </div>
@@ -30,7 +30,7 @@
     <hr>
     <div style='padding-top:30px'>
         <center>
-        <h2 class='secondary-font'>Our partners</h2>
+        <h2 class='secondary-font'>{% trans "Our partners" %}</h2>
         </center>
 
         <div class='indented links'>

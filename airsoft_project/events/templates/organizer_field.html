@@ -1,16 +1,17 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
     <div class='indented main-font'>
         <h1>{{ field.name }}</h1>
         <br>
-        <div><strong>Coordinates:</strong> {{ field.location_long }}, {{ field.location_lat }}</div>
+        <div><strong>{% trans "Coordinates" %}:</strong> {{ field.location_long }}, {{ field.location_lat }}</div>
         <hr>
-        <div><strong>Description:</strong> {{ field.description|safe }}</div>
+        <div><strong>{% trans "Description" %}:</strong> {{ field.description|safe }}</div>
         <hr>
-        <div>Field map:</div>
+        <div>{% trans "Field map" %}:</div>
         <div><img src={{ field.field_map.url }} width="600" height="450"></div>
-        <div>Location on map:</div>
+        <div>{% trans "Location on map" %}:</div>
         
         <iframe width="600" height="450" 
             style="border:0" loading="lazy" 
@@ -19,8 +20,8 @@
         </iframe>
 
         <div>
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'update_field' field.id %}">Update</a>
-            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'delete_field' field.id %}">Delete</a>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'update_field' field.id %}">{% trans "Update" %}</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'delete_field' field.id %}">{% trans "Delete" %}</a>
         </div>
 
     </div>

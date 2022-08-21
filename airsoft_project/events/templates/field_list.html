@@ -7,7 +7,7 @@
 {% endif %}
 
 <div class='indented main-font'>
-    <h1 class='secondary-font'>Field list</h1>
+    <h1 class='secondary-font'>{% trans "Field list" %}</h1>
 
     <div class="pagination secondary-font">
         <span class="step-links">
@@ -36,7 +36,7 @@
             {% endfor %}
         </div>
     {% else %}
-        <div> No fields yet </div>
+        <div> {% trans "No fields yet" %} </div>
     {% endif %}
 
     {% if user.profile.is_organizer == True %}

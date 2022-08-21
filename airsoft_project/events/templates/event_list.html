@@ -9,12 +9,12 @@
 <div class='indented main-font'>
     <div style='padding-bottom:20px'>
 
-        <h1 class='secondary-font'>Event list</h1>
+        <h1 class='secondary-font'>{% trans "Event list" %}</h1>
         
         <center>
             <div>
                 <form action="{% url 'search_events' %}" method="get" >
-                <input name="query" class="search-bar secondary-font" type="text" placeholder="Search for events">
+                <input name="query" class="search-bar secondary-font" type="text" placeholder="{% trans "Search for events" %}">
                 </form>
             </div>
         </center>
@@ -47,13 +47,13 @@
                 <strong><a class='link' href={{ event.id }}> <div> {{ event.name }} ({{ event.date|date:"Y-m-d" }}) </div></a></strong>
                 <div class='secondary-font'> 
                     <div> {{ event.field }} </div>
-                    <div><strong> Created by:</strong> {{ event.organizer }}</div>
+                    <div><strong> {% trans "Created by" %}:</strong> {{ event.organizer }}</div>
                 </div>
                 <hr>
             {% endfor %}
         </div>
     {% else %}
-        <div> No events yet </div>
+        <div> {% trans "No events yet" %} </div>
     {% endif %}
     
     {% if user.profile.is_organizer == True %}

@@ -1,25 +1,26 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
     <div class='indented main-font'>
         <h1 class='secondary-font'>{{ event.name }}</h1>
-        <small>Created on: {{ event.created_on|date:"Y-m-d" }}</small>
+        <small>{% trans "Created on" %}: {{ event.created_on|date:"Y-m-d" }}</small>
 
         <br>
-        <div><strong>Date:</strong> {{ event.date|date:"Y-m-d H:i" }}</a></div>
-        <div><strong>Organizer:</strong><a class='link' href="{% url 'organizer_detail' event.organizer.pk %}">{{ event.organizer }}</a></div>
-        <div><strong>Field:</strong><a class='link' href="{% url 'field_detail' event.field.pk %}">{{ event.field }}</a></div>
+        <div><strong>{% trans "Date" %}:</strong> {{ event.date|date:"Y-m-d H:i" }}</a></div>
+        <div><strong>{% trans "Organizer" %}:</strong><a class='link' href="{% url 'organizer_detail' event.organizer.pk %}">{{ event.organizer }}</a></div>
+        <div><strong>{% trans "Field" %}:</strong><a class='link' href="{% url 'field_detail' event.field.pk %}">{{ event.field }}</a></div>
         <hr>
-        <div class='secondary-font'><strong>Description:</strong> {{ event.description|safe }}</div>
+        <div class='secondary-font'><strong>{% trans "Description" %}:</strong> {{ event.description|safe }}</div>
         <hr>
-        <div>Maximum number of players: {{ event.max_players }}</div>
+        <div>{% trans "Maximum number of players" %}: {{ event.max_players }}</div>
         {% if event.registered_players.count != 0 %}
-            <div>Registered players: {{ event.registered_players.count }}</div>
+            <div>{% trans "Registered players" %}: {{ event.registered_players.count }}</div>
         {% else %}
-            <div>No registered players</div>
+            <div>{% trans "No registered players" %}</div>
         {% endif %}
-        <div>Price: {{ event.price }} €</div>
+        <div>{% trans "Price" %}: {{ event.price }} €</div>
         <hr>
-        <div><a class='link' href={% url 'my_completed_events' %}>Back to my participated events</a></div>
+        <div><a class='link' href={% url 'my_completed_events' %}>{% trans "Back to my participated events" %}</a></div>
     </div>
 {% endblock %}

@@ -1,30 +1,30 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
 <center>
   {% if form.errors %}
-    <div class='main-font' style='color:maroon'>Log in failed. Try again</div>
+    <div class='main-font' style='color:maroon'>{% trans "Log in failed. Try again" %}</div>
   {% endif %}
   
   {% if next %}
     {% if user.is_authenticated %}
-      <p>You do not have access. Log in.</p>
+      <p>{% trans "You do not have access. Log in" %}.</p>
     {% endif %}
   {% endif %}
   <div style='padding-top:50px'>
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
-    <div class='secondary-font'>Username</div>
+    <div class='secondary-font'>{% trans "Username" %}</div>
     <div>{{ form.username }}</div>
     <br>
-    <div class='secondary-font'>Password</div>
+    <div class='secondary-font'>{% trans "Password" %}</div>
     <div>{{ form.password }}</div>
     <br>
-    <button class="btn btn-outline-secondary secondary-font" type="submit">Log in</button>
+    <button class="btn btn-outline-secondary secondary-font" type="submit">{% trans "Log in" %}</button>
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
   <br><br>
-  <p><a class='main-font link' style='color:beige' href="{% url 'password_reset' %}">Forgot password?</a></p>
+  <p><a class='main-font link' style='color:beige' href="{% url 'password_reset' %}">{% trans "Forgot password" %}?</a></p>
 </div>
 </center>
 {% endblock %}

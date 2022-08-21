@@ -2,7 +2,7 @@
 {% load i18n %}
 {% block content %}
     <div class='indented main-font'>
-        <h1>My Events</h1>
+        <h1>{% trans "My Events" %}</h1>
 
         <center>
             <div>
@@ -37,14 +37,14 @@
     {% for event in events %}
         <hr>
         <div><strong>{{ event.name }}</strong></div>
-        <div><strong>Date:</strong> {{ event.date|date:"Y-m-d" }}</div>
+        <div><strong>{% trans "Date" %}:</strong> {{ event.date|date:"Y-m-d" }}</div>
         
         <br/>
-        <a class="btn btn-outline-info" href="{% url 'organizer_event' event.pk %}" role="button">See more</a>
+        <a class="btn btn-outline-info" href="{% url 'organizer_event' event.pk %}" role="button">{% trans "See more" %}</a>
     {% endfor %}
 
     {% else %}
-        <p>There are no events created</p>
+        <p>{% trans "There are no events created" %}</p>
     {% endif %}
 
     <br>

@@ -1,0 +1,517 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-21 14:30+0300\n"
+"PO-Revision-Date: 2022-08-21 14:34+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#: .\models.py:14
+msgid "Profile"
+msgstr "Profilis"
+
+#: .\models.py:15
+msgid "Name of the organizer"
+msgstr "Organizatoriaus pavadinimas"
+
+#: .\models.py:15
+msgid "New Organizer"
+msgstr "Naujas organizatorius"
+
+#: .\models.py:17
+msgid "Address and contacts"
+msgstr "Adresas ir kontaktai"
+
+#: .\models.py:22 .\models.py:41 .\models.py:85
+#: .\templates\event_detail.html:21 .\templates\player_completed_event.html:11
+#: .\templates\player_event.html:11
+msgid "Organizer"
+msgstr "Organizatorius"
+
+#: .\models.py:23 .\templates\base.html:38
+msgid "Organizers"
+msgstr "Organizatoriai"
+
+#: .\models.py:38
+msgid "Name of the event"
+msgstr "Renginio pavadinimas"
+
+#: .\models.py:39
+msgid "Date of event"
+msgstr "Renginio data"
+
+#: .\models.py:40
+msgid "Time of event"
+msgstr "Renginio laikas"
+
+#: .\models.py:40
+msgid "i.e.: 12:00 PM"
+msgstr "pvz.: 12:00 PM"
+
+#: .\models.py:42 .\models.py:43 .\models.py:88
+#: .\templates\event_detail.html:22 .\templates\organizer_event.html:13
+#: .\templates\player_completed_event.html:12 .\templates\player_event.html:12
+msgid "Field"
+msgstr "Poligonas"
+
+#: .\models.py:44 .\templates\event_detail.html:32
+#: .\templates\organizer_event.html:16
+#: .\templates\player_completed_event.html:22 .\templates\player_event.html:22
+msgid "Price"
+msgstr "Kaina"
+
+#: .\models.py:45
+msgid "Maximum player number"
+msgstr "Maksimalus žaidėjų skaičius"
+
+#: .\models.py:53
+msgid "Status"
+msgstr "Statusas"
+
+#: .\models.py:57 .\templates\organizer_event.html:6
+msgid "Event"
+msgstr "Renginys"
+
+#: .\models.py:58 .\templates\base.html:35
+msgid "Events"
+msgstr "Renginiai"
+
+#: .\models.py:80
+msgid "Name of the game field"
+msgstr "Poligono pavadinimas"
+
+#: .\models.py:81
+msgid "Location longitude"
+msgstr "Ilguma"
+
+#: .\models.py:82
+msgid "Location latitude"
+msgstr "Platuma"
+
+#: .\models.py:89 .\templates\base.html:41
+msgid "Fields"
+msgstr "Poligonai"
+
+#: .\templates\about.html:6
+msgid "About"
+msgstr "Apie"
+
+#: .\templates\about.html:7
+msgid "This website is created for educational purposes only"
+msgstr "Ši svetainė sukurta mokymosi tikslais"
+
+#: .\templates\about.html:9
+msgid ""
+" \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, \n"
+"    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n"
+"    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi "
+"ut aliquip ex ea commodo consequat. \n"
+"    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum "
+"dolore eu fugiat nulla pariatur. \n"
+"    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui "
+"officia deserunt mollit anim id est laborum.\""
+msgstr "Lietuviškai"
+
+#: .\templates\about.html:16 .\templates\base.html:32
+msgid "Home"
+msgstr "Pradinis"
+
+#: .\templates\base.html:44
+msgid "Teams"
+msgstr "Komandos"
+
+#: .\templates\base.html:47
+msgid "Players"
+msgstr "Žaidėjai"
+
+#: .\templates\base.html:51
+msgid "Logout"
+msgstr "Atsijungti"
+
+#: .\templates\base.html:58
+msgid "Login"
+msgstr "Prisijungti"
+
+#: .\templates\base.html:61 .\templates\register_to_event.html:28
+msgid "Register"
+msgstr "Registruotis"
+
+#: .\templates\event_detail.html:6 .\templates\organizer_event.html:17
+#: .\templates\player_completed_event.html:7 .\templates\player_event.html:7
+msgid "Created on"
+msgstr "Sukurta"
+
+#: .\templates\event_detail.html:11
+msgid "You are registered to this event"
+msgstr "Jus registruotas šiame renginyje"
+
+#: .\templates\event_detail.html:13 .\templates\register_to_event.html:16
+#: .\templates\register_to_event.html:24
+msgid "Register to event"
+msgstr "Registruotis"
+
+#: .\templates\event_detail.html:19 .\templates\organizer_event.html:9
+#: .\templates\organizer_events.html:40
+#: .\templates\player_completed_event.html:10 .\templates\player_event.html:10
+msgid "Date"
+msgstr "Data"
+
+#: .\templates\event_detail.html:20
+msgid "Time"
+msgstr "Laikas"
+
+#: .\templates\event_detail.html:24 .\templates\field_detail.html:11
+#: .\templates\organizer_detail.html:13 .\templates\organizer_event.html:11
+#: .\templates\organizer_field.html:10
+#: .\templates\player_completed_event.html:14 .\templates\player_event.html:14
+msgid "Description"
+msgstr "Aprašymas"
+
+#: .\templates\event_detail.html:26 .\templates\organizer_event.html:14
+#: .\templates\player_completed_event.html:16 .\templates\player_event.html:16
+msgid "Maximum number of players"
+msgstr "Maksimalus žaidėjų skaičius"
+
+#: .\templates\event_detail.html:28 .\templates\organizer_event.html:15
+#: .\templates\player_completed_event.html:18 .\templates\player_event.html:18
+msgid "Registered players"
+msgstr "Registruoti žaidėjai"
+
+#: .\templates\event_detail.html:30 .\templates\player_event.html:20
+msgid "No registered players yet"
+msgstr "Prisiregistravusių žaidėjų nėra"
+
+#: .\templates\event_list.html:6
+msgid "Create new event"
+msgstr "Naujas renginys"
+
+#: .\templates\event_list.html:12 .\templates\search_events.html:23
+#: .\templates\search_events_by_date.html:23
+msgid "Event list"
+msgstr "Renginiai"
+
+#: .\templates\event_list.html:17
+msgid "Search for events"
+msgstr "Renginių paieška"
+
+#: .\templates\event_list.html:50 .\templates\player_completed_events.html:34
+#: .\templates\player_events.html:34
+msgid "Created by"
+msgstr "Sukurta"
+
+#: .\templates\event_list.html:56 .\templates\organizer_detail.html:22
+#: .\templates\player_completed_events.html:40
+#: .\templates\player_events.html:40
+msgid "No events yet"
+msgstr "Renginių nėra"
+
+#: .\templates\event_list.html:60 .\templates\player_completed_events.html:44
+#: .\templates\player_events.html:44
+msgid "My events"
+msgstr "Mano renginiai"
+
+#: .\templates\field_detail.html:9 .\templates\organizer_field.html:8
+msgid "Coordinates"
+msgstr "Koordinatės"
+
+#: .\templates\field_detail.html:13 .\templates\organizer_field.html:12
+msgid "Field map"
+msgstr "Poligono žemėlapis"
+
+#: .\templates\field_detail.html:15 .\templates\organizer_field.html:14
+msgid "Location on map"
+msgstr "Vieta žemėlapyje"
+
+#: .\templates\field_list.html:6
+msgid "Create new field"
+msgstr "Naujas poligonas"
+
+#: .\templates\field_list.html:10
+msgid "Field list"
+msgstr "Poligonai"
+
+#: .\templates\field_list.html:39
+msgid "No fields yet"
+msgstr "Poligonų nėra"
+
+#: .\templates\field_list.html:43 .\templates\organizer_fields.html:6
+msgid "My added fields"
+msgstr "Mano poligonai"
+
+#: .\templates\index.html:10
+msgid "Events this month"
+msgstr "Šio mėnesio renginiai"
+
+#: .\templates\index.html:25
+msgid "No events this month"
+msgstr "Šį mėnesį renginių nėra"
+
+#: .\templates\index.html:33
+msgid "Our partners"
+msgstr "Mūsų partneriai"
+
+#: .\templates\organizer_delete_event.html:13
+msgid "Delete event"
+msgstr "Naikinti renginį"
+
+#: .\templates\organizer_delete_event.html:14
+#: .\templates\organizer_delete_field.html:14
+msgid "Are you sure you want to delete"
+msgstr "Ar tikrai norite naikinti"
+
+#: .\templates\organizer_delete_event.html:14
+#: .\templates\register_to_event.html:17 .\templates\register_to_event.html:25
+msgid "event"
+msgstr "renginį"
+
+#: .\templates\organizer_delete_event.html:17
+#: .\templates\organizer_delete_field.html:17
+msgid "Yes, delete"
+msgstr "Taip, naikinti"
+
+#: .\templates\organizer_delete_event.html:18
+#: .\templates\organizer_delete_field.html:18
+#: .\templates\register_to_event.html:29
+msgid "Cancel"
+msgstr "Atšaukti"
+
+#: .\templates\organizer_delete_field.html:13
+msgid "Delete field"
+msgstr "Naikinti poligoną"
+
+#: .\templates\organizer_delete_field.html:14
+msgid "field"
+msgstr "poligoną"
+
+#: .\templates\organizer_detail.html:9
+msgid "Contacts"
+msgstr "Kontaktai"
+
+#: .\templates\organizer_detail.html:10
+msgid "Email"
+msgstr "El. paštas"
+
+#: .\templates\organizer_detail.html:11
+msgid "Address and phone"
+msgstr "Adresas ir telefono nr"
+
+#: .\templates\organizer_detail.html:15
+msgid "'s events"
+msgstr " organizatoriaus renginiai"
+
+#: .\templates\organizer_event.html:23 .\templates\organizer_field.html:23
+#: .\templates\organizer_update_event_form.html:14
+#: .\templates\organizer_update_field_form.html:14
+msgid "Update"
+msgstr "Atnaujinti"
+
+#: .\templates\organizer_event.html:24 .\templates\organizer_field.html:24
+msgid "Delete"
+msgstr "Naikinti"
+
+#: .\templates\organizer_event.html:29
+msgid "To my events"
+msgstr "Mano renginiai"
+
+#: .\templates\organizer_event_form.html:10
+msgid "New event"
+msgstr "Naujas renginys"
+
+#: .\templates\organizer_event_form.html:14
+#: .\templates\organizer_field_form.html:14
+msgid "Create"
+msgstr "Sukurti"
+
+#: .\templates\organizer_events.html:5
+msgid "My Events"
+msgstr "Mano renginiai"
+
+#: .\templates\organizer_events.html:11
+msgid "Search"
+msgstr "Paieška"
+
+#: .\templates\organizer_events.html:43 .\templates\organizer_fields.html:33
+msgid "See more"
+msgstr "Žr. daugiau"
+
+#: .\templates\organizer_events.html:47
+msgid "There are no events created"
+msgstr "Renginių nėra"
+
+#: .\templates\organizer_field_form.html:10
+msgid "Create field"
+msgstr "Naujas poligonas"
+
+#: .\templates\organizer_fields.html:37
+msgid "There are no fields created"
+msgstr "Poligonų nėra"
+
+#: .\templates\organizer_list.html:6
+msgid "Organizer list"
+msgstr "Organizatoriai"
+
+#: .\templates\organizer_list.html:28
+msgid "No organizers yet"
+msgstr "Organizatorių nėra"
+
+#: .\templates\organizer_update_event_form.html:10
+msgid "Update event"
+msgstr "Atnaujinti"
+
+#: .\templates\organizer_update_field_form.html:10
+msgid "Update field"
+msgstr "Atnaujinti"
+
+#: .\templates\player_completed_event.html:20
+msgid "No registered players"
+msgstr "Prisiregistravusių žaidėjų nėra"
+
+#: .\templates\player_completed_event.html:24
+msgid "Back to my participated events"
+msgstr "Mano praėję renginiai"
+
+#: .\templates\player_completed_events.html:7
+msgid "My participated events"
+msgstr "Mano praėję renginiai"
+
+#: .\templates\player_event.html:24
+msgid "Back to my registered events"
+msgstr "Mano būsimi renginiai"
+
+#: .\templates\player_events.html:7
+msgid "My registered events"
+msgstr "Mano būsimi renginiai"
+
+#: .\templates\register_to_event.html:10
+msgid "Only players can register to events"
+msgstr "Tik žaidėjai gali registruotis į renginius"
+
+#: .\templates\register_to_event.html:17
+msgid "You are already registered to"
+msgstr "Jūs jau prisiregistravote į"
+
+#: .\templates\register_to_event.html:20
+msgid "Go back"
+msgstr "Atgal"
+
+#: .\templates\register_to_event.html:25
+msgid "Are you sure you want register to"
+msgstr "Ar tikrai norite registruotis į"
+
+#: .\templates\registration\logged_out.html:5
+msgid "Logged out successfully"
+msgstr "Sėkmingai atsijungėte"
+
+#: .\templates\registration\logged_out.html:6
+msgid "Log in again"
+msgstr "Prisijunkite vėl"
+
+#: .\templates\registration\login.html:6
+msgid "Log in failed. Try again"
+msgstr "Nepavyko prisijungti. Bandykite dar kartą"
+
+#: .\templates\registration\login.html:11
+msgid "You do not have access. Log in"
+msgstr "Neturite prieigos. Privalote prisijungti"
+
+#: .\templates\registration\login.html:17
+msgid "Username"
+msgstr "Vartotojo vardas"
+
+#: .\templates\registration\login.html:20
+msgid "Password"
+msgstr "Slaptažodis"
+
+#: .\templates\registration\login.html:23
+#: .\templates\registration\password_reset_complete.html:7
+msgid "Log in"
+msgstr "Prisijungti"
+
+#: .\templates\registration\login.html:27
+msgid "Forgot password"
+msgstr "Pamiršote slaptažodį"
+
+#: .\templates\registration\password_reset_complete.html:6
+msgid "Password changed successfully"
+msgstr "Slaptažodis pakeistas sėkmingai"
+
+#: .\templates\registration\password_reset_confirm.html:6
+msgid "Enter a new password and confirm it"
+msgstr "Įveskite naują slaptažodį ir patvirtinkite"
+
+#: .\templates\registration\password_reset_confirm.html:10
+msgid "New password"
+msgstr "Naująs slaptažodis"
+
+#: .\templates\registration\password_reset_confirm.html:13
+msgid "Confirm password"
+msgstr "Patvirtinti slaptažodį"
+
+#: .\templates\registration\password_reset_confirm.html:16
+msgid "Change password"
+msgstr "Pakeisti slaptažodį"
+
+#: .\templates\registration\password_reset_confirm.html:20
+msgid "Failed to change password"
+msgstr "Nepavyko pakeisti slaptažodžio"
+
+#: .\templates\registration\password_reset_confirm.html:21
+msgid "The link is expired. Please initiate password change again"
+msgstr "Nuoroda nebeveikia. Inicijuokite slaptažodžio keitimą iš naujo"
+
+#: .\templates\registration\password_reset_done.html:5
+msgid "We have sent password change confirmation letter to your email"
+msgstr "Jūsų el. paštu išsiuntėme slaptažodžio keitimo patvirtinimo laišką"
+
+#: .\templates\registration\password_reset_email.html:3
+msgid ""
+"We have received a request to change your password. If this was You please "
+"follow the link below:"
+msgstr ""
+"Gavome prašymą pakeisti slaptažodį. Jei tai buvote jūs, spustelėkite toliau "
+"pateiktą nuorodą:"
+
+#: .\templates\registration\password_reset_email.html:7
+msgid "If this letter is not for you please ignore it."
+msgstr "Jei šis laiškas ne Jums, ignoruokite jį."
+
+#: .\templates\registration\password_reset_email.html:10
+msgid "Sincerely"
+msgstr "Pagarbiai"
+
+#: .\templates\registration\password_reset_form.html:11
+msgid "Enter a valid email"
+msgstr "Įveskite galiojantį el. pašto adresą"
+
+#: .\templates\registration\password_reset_form.html:13
+msgid "Reset password"
+msgstr "Nustatyti slaptažodį iš naujo"
+
+#: .\templates\search_events.html:8 .\templates\search_events_by_date.html:8
+msgid "Search for"
+msgstr "Paieškos"
+
+#: .\templates\search_events.html:8 .\templates\search_events_by_date.html:8
+msgid "results"
+msgstr "rezultatai"
+
+#: .\templates\search_events.html:19 .\templates\search_events_by_date.html:19
+msgid "No match for"
+msgstr "Nepavyko rasti"
+
+#~ msgid "CHANGE"
+#~ msgstr "PAKEISTI"

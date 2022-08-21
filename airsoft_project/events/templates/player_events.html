@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% load i18n %}
+
 {% block content %}
 <div class='indented main-font'>
     <div style='padding-bottom:20px'>
-        <h1 class='secondary-font'>My registered events</h1>
+        <h1 class='secondary-font'>{% trans "My registered events" %}</h1>
         
         <div class="pagination secondary-font">
             <span class="step-links">
@@ -30,13 +31,13 @@
                 <strong><a class='link' href={% url 'my_registered_event' event.id %}> <div> {{ event.name }} ({{ event.date|date:"Y-m-d" }}) </div></a></strong>
                 <div class='secondary-font'> 
                     <div> {{ event.field }} </div>
-                    <div><strong> Created by:</strong> {{ event.organizer }}</div>
+                    <div><strong> {% trans "Created by" %}:</strong> {{ event.organizer }}</div>
                 </div>
                 <hr>
         {% endfor %}
     </div>
     {% else %}
-    <div> No events yet </div>
+    <div> {% trans "No events yet" %} </div>
     {% endif %}
     
     {% if user.profile.is_organizer == True %}

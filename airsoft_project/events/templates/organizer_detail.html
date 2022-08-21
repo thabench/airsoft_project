@@ -1,25 +1,25 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
 
 <div class='indented main-font'>
     <img class="profile-picture" src="{{ organizer.profile_picture.url }}">
     <h1>{{ organizer.name }}</h1>
     <br>
-    <h2>Contacts:</h2>
-    {% comment %} <div>Email: {{ organizer.email }}</div> {% endcomment %}
-    <div>Address and phone: {{ organizer.contacts }}</div>
+    <h2>{% trans "Contacts" %}:</h2>
+    <div><strong>{% trans "Email" %}:</strong> {{ organizer.profile.user.email }}</div>
+    <div><strong>{% trans "Address and phone" %}:</strong> {{ organizer.contacts }}</div>
     <hr>
-    <div><strong>Description:</strong> {{ organizer.description|safe }}</div>
+    <div><strong>{% trans "Description" %}:</strong> {{ organizer.description|safe }}</div>
     <hr>
-    <h2>{{ organizer.name }}'s events:</h2>
+    <h2>{{ organizer.name }}{% trans "'s events" %}:</h2>
     <div>
     {% if organizer.event_organizers.all %}
     {% for i in organizer.event_organizers.all %}
     <a class='link' href="{% url 'event_detail' i.pk %}"><div>{{ i.name }} ({{i.date|date:'Y-m-d'}}) </div></a>
     {% endfor %}
     {% else %}
-    <div> No events yet </div>
+    <div> {% trans "No events yet" %} </div>
     {% endif %}
     <br>
     </div>

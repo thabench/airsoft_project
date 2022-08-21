@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
 <center>
-  <p>Logged out successfully</p>  
-  <a class="btn btn-outline-secondary" href="{% url 'login'%}">Log in again</a>
+  <div class='indented main-font'>{% trans "Logged out successfully" %}</div>  
+  <a class="btn btn-outline-secondary secondary-font" href="{% url 'login'%}">{% trans "Log in again" %}</a>
 </center>
 {% endblock %}

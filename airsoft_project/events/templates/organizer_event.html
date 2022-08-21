@@ -1,28 +1,29 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
     <div class='indented main-font'>
-    <h1>Event: {{ event }}</h1>
+    <h1>{% trans "Event" %}: {{ event }}</h1>
     <hr>
         
-        <div><strong>Date:</strong> {{event.date|date:"Y-m-d"}}</div>
+        <div><strong>{% trans "Date" %}:</strong> {{event.date|date:"Y-m-d"}}</div>
         <br>
-        <div><strong>Description:</strong> {{event.description|safe}}</div>
+        <div><strong>{% trans "Description" %}:</strong> {{event.description|safe}}</div>
         <br>
-        <div><strong>Field:</strong> {{event.field}}</div>
-        <div><strong>Maximum number of players:</strong> {{event.max_players}}</div>
-        <div><strong>Registered players:</strong> {{event.registered_players.count}}</div>
-        <div><strong>Price:</strong> {{event.price}} €</div>
-        <div><strong>Created on:</strong> {{event.created_on|date:"Y-m-d"}}</div>
+        <div><strong>{% trans "Field" %}:</strong> {{event.field}}</div>
+        <div><strong>{% trans "Maximum number of players" %}:</strong> {{event.max_players}}</div>
+        <div><strong>{% trans "Registered players" %}:</strong> {{event.registered_players.count}}</div>
+        <div><strong>{% trans "Price" %}:</strong> {{event.price}} €</div>
+        <div><strong>{% trans "Created on" %}:</strong> {{event.created_on|date:"Y-m-d"}}</div>
         <br>
 
         {% comment %} {% if object.organizer == user %} {% endcomment %}
         <div>
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'update_event' object.id %}">Update</a>
-            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'delete_event' object.id %}">Delete</a>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'update_event' object.id %}">{% trans "Update" %}</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'delete_event' object.id %}">{% trans "Delete" %}</a>
         </div>
         {% comment %} {% endif %} {% endcomment %}
 
-        <a class='btn btn-outline-info' href="{% url 'organizer_events' %}" role="button">To my events</a>
+        <a class='btn btn-outline-info' href="{% url 'organizer_events' %}" role="button">{% trans "To my events" %}</a>
     </div>
 {% endblock %}

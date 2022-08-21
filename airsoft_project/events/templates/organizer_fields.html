@@ -1,8 +1,9 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
+
     <div class='indented main-font'>
-        <h1>My added fields</h1>
+        <h1>{% trans "My added fields" %}</h1>
 
         <div class="pagination secondary-font">
             <span class="step-links">
@@ -29,11 +30,11 @@
         <hr>
         <div><strong>{{ field.name }}</strong></div>
         <br/>
-        <a class="btn btn-outline-info" href="{% url 'organizer_field' field.pk %}" role="button">See more</a>
+        <a class="btn btn-outline-info" href="{% url 'organizer_field' field.pk %}" role="button">{% trans "See more" %}</a>
     {% endfor %}
 
     {% else %}
-        <p>There are no fields created</p>
+        <p>{% trans "There are no fields created" %}</p>
     {% endif %}
     
     <br>
