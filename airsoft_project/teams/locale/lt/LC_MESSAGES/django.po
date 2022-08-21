@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-21 15:40+0300\n"
-"PO-Revision-Date: 2022-08-21 15:41+0300\n"
+"POT-Creation-Date: 2022-08-21 16:49+0300\n"
+"PO-Revision-Date: 2022-08-21 16:51+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -185,27 +185,27 @@ msgstr "Žaidėjų paieška"
 msgid "No players yet"
 msgstr "Žaidėjų nėra"
 
-#: .\templates\profile.html:31
+#: .\templates\profile.html:32
 msgid "Organizer info"
 msgstr "Organizatorius duomenys"
 
-#: .\templates\profile.html:44
+#: .\templates\profile.html:45
 msgid "Player info"
 msgstr "Žaidėjo duomenys"
 
-#: .\templates\profile.html:48
+#: .\templates\profile.html:49
 msgid "My registered events"
 msgstr "Mano būsimi renginiai"
 
-#: .\templates\profile.html:51
+#: .\templates\profile.html:52
 msgid "My participated events"
 msgstr "Mano praėję renginiai"
 
-#: .\templates\profile.html:58
+#: .\templates\profile.html:59
 msgid "User info"
 msgstr "Vartotojo duomenys"
 
-#: .\templates\profile.html:64 .\templates\team_update_form.html:24
+#: .\templates\profile.html:65 .\templates\team_update_form.html:24
 msgid "Update"
 msgstr "Atnaujinti"
 

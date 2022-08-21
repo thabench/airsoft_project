@@ -9,7 +9,6 @@ from django.db.models import Q
 
 # Create your views here.
 
-
 def index(request):
     current_month = datetime.now().month
     events = Event.objects.filter(status='a')

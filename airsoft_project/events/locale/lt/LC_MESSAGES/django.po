@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-21 15:43+0300\n"
-"PO-Revision-Date: 2022-08-21 15:44+0300\n"
+"POT-Creation-Date: 2022-08-21 16:49+0300\n"
+"PO-Revision-Date: 2022-08-21 16:50+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -20,7 +20,7 @@ msgstr ""
 "1 : n % 1 != 0 ? 2: 3);\n"
 "X-Generator: Poedit 3.1.1\n"
 
-#: .\models.py:14
+#: .\models.py:14 .\templates\base.html:70
 msgid "Profile"
 msgstr "Profilis"
 
@@ -41,12 +41,12 @@ msgid "Address and contacts"
 msgstr "Adresas ir kontaktai"
 
 #: .\models.py:22 .\models.py:41 .\models.py:85
-#: .\templates\event_detail.html:21 .\templates\player_completed_event.html:11
+#: .\templates\event_detail.html:25 .\templates\player_completed_event.html:11
 #: .\templates\player_event.html:11
 msgid "Organizer"
 msgstr "Organizatorius"
 
-#: .\models.py:23 .\templates\base.html:38
+#: .\models.py:23 .\templates\base.html:53
 msgid "Organizers"
 msgstr "Organizatoriai"
 
@@ -67,12 +67,12 @@ msgid "i.e.: 12:00 PM"
 msgstr "pvz.: 12:00 PM"
 
 #: .\models.py:42 .\models.py:43 .\models.py:88
-#: .\templates\event_detail.html:22 .\templates\organizer_event.html:13
+#: .\templates\event_detail.html:26 .\templates\organizer_event.html:13
 #: .\templates\player_completed_event.html:12 .\templates\player_event.html:12
 msgid "Field"
 msgstr "Poligonas"
 
-#: .\models.py:44 .\templates\event_detail.html:32
+#: .\models.py:44 .\templates\event_detail.html:36
 #: .\templates\organizer_event.html:16
 #: .\templates\player_completed_event.html:22 .\templates\player_event.html:22
 msgid "Price"
@@ -90,7 +90,7 @@ msgstr "Statusas"
 msgid "Event"
 msgstr "Renginys"
 
-#: .\models.py:58 .\templates\base.html:35
+#: .\models.py:58 .\templates\base.html:50
 msgid "Events"
 msgstr "Renginiai"
 
@@ -106,7 +106,7 @@ msgstr "Ilguma"
 msgid "Location latitude"
 msgstr "Platuma"
 
-#: .\models.py:89 .\templates\base.html:41
+#: .\models.py:89 .\templates\base.html:56
 msgid "Fields"
 msgstr "Poligonai"
 
@@ -130,27 +130,41 @@ msgid ""
 "officia deserunt mollit anim id est laborum.\""
 msgstr "Lietuviškai"
 
-#: .\templates\about.html:16 .\templates\base.html:32
+#: .\templates\about.html:16 .\templates\base.html:47
 msgid "Home"
 msgstr "Pradinis"
 
-#: .\templates\base.html:44
+#: .\templates\base.html:59
 msgid "Teams"
 msgstr "Komandos"
 
-#: .\templates\base.html:47
+#: .\templates\base.html:62
 msgid "Players"
 msgstr "Žaidėjai"
 
-#: .\templates\base.html:51
-msgid "Logout"
+#: .\templates\base.html:72 .\templates\player_events.html:7
+msgid "My registered events"
+msgstr "Mano būsimi renginiai"
+
+#: .\templates\base.html:73
+msgid "My completed events"
+msgstr "Mano praėję renginiai"
+
+#: .\templates\base.html:76 .\templates\event_list.html:60
+#: .\templates\player_completed_events.html:44
+#: .\templates\player_events.html:44
+msgid "My events"
+msgstr "Mano renginiai"
+
+#: .\templates\base.html:78
+msgid "Log out"
 msgstr "Atsijungti"
 
-#: .\templates\base.html:58
+#: .\templates\base.html:83
 msgid "Login"
 msgstr "Prisijungti"
 
-#: .\templates\base.html:61 .\templates\register_to_event.html:28
+#: .\templates\base.html:86 .\templates\register_to_event.html:28
 msgid "Register"
 msgstr "Registruotis"
 
@@ -163,39 +177,43 @@ msgstr "Sukurta"
 msgid "You are registered to this event"
 msgstr "Jus registruotas šiame renginyje"
 
-#: .\templates\event_detail.html:13 .\templates\register_to_event.html:16
+#: .\templates\event_detail.html:14 .\templates\register_to_event.html:16
 #: .\templates\register_to_event.html:24
 msgid "Register to event"
 msgstr "Registruotis"
 
-#: .\templates\event_detail.html:19 .\templates\organizer_event.html:9
+#: .\templates\event_detail.html:16
+msgid "Maximum players reached"
+msgstr "Maksimalus žaidėjų skaičius pasiektas"
+
+#: .\templates\event_detail.html:23 .\templates\organizer_event.html:9
 #: .\templates\organizer_events.html:40
 #: .\templates\player_completed_event.html:10 .\templates\player_event.html:10
 msgid "Date"
 msgstr "Data"
 
-#: .\templates\event_detail.html:20
+#: .\templates\event_detail.html:24
 msgid "Time"
 msgstr "Laikas"
 
-#: .\templates\event_detail.html:24 .\templates\field_detail.html:11
+#: .\templates\event_detail.html:28 .\templates\field_detail.html:11
 #: .\templates\organizer_detail.html:13 .\templates\organizer_event.html:11
 #: .\templates\organizer_field.html:10
 #: .\templates\player_completed_event.html:14 .\templates\player_event.html:14
 msgid "Description"
 msgstr "Aprašymas"
 
-#: .\templates\event_detail.html:26 .\templates\organizer_event.html:14
+#: .\templates\event_detail.html:30 .\templates\organizer_event.html:14
 #: .\templates\player_completed_event.html:16 .\templates\player_event.html:16
 msgid "Maximum number of players"
 msgstr "Maksimalus žaidėjų skaičius"
 
-#: .\templates\event_detail.html:28 .\templates\organizer_event.html:15
+#: .\templates\event_detail.html:32 .\templates\organizer_event.html:15
 #: .\templates\player_completed_event.html:18 .\templates\player_event.html:18
 msgid "Registered players"
 msgstr "Registruoti žaidėjai"
 
-#: .\templates\event_detail.html:30 .\templates\player_event.html:20
+#: .\templates\event_detail.html:34 .\templates\player_event.html:20
 msgid "No registered players yet"
 msgstr "Prisiregistravusių žaidėjų nėra"
 
@@ -203,8 +221,8 @@ msgstr "Prisiregistravusių žaidėjų nėra"
 msgid "Create new event"
 msgstr "Naujas renginys"
 
-#: .\templates\event_list.html:12 .\templates\search_events.html:23
-#: .\templates\search_events_by_date.html:23
+#: .\templates\event_list.html:12 .\templates\search_events.html:25
+#: .\templates\search_events_by_date.html:25
 msgid "Event list"
 msgstr "Renginiai"
 
@@ -222,11 +240,6 @@ msgstr "Sukurta"
 #: .\templates\player_events.html:40
 msgid "No events yet"
 msgstr "Renginių nėra"
-
-#: .\templates\event_list.html:60 .\templates\player_completed_events.html:44
-#: .\templates\player_events.html:44
-msgid "My events"
-msgstr "Mano renginiai"
 
 #: .\templates\field_detail.html:9 .\templates\organizer_field.html:8
 msgid "Coordinates"
@@ -396,10 +409,6 @@ msgstr "Mano praėję renginiai"
 msgid "Back to my registered events"
 msgstr "Mano būsimi renginiai"
 
-#: .\templates\player_events.html:7
-msgid "My registered events"
-msgstr "Mano būsimi renginiai"
-
 #: .\templates\register_to_event.html:10
 msgid "Only players can register to events"
 msgstr "Tik žaidėjai gali registruotis į renginius"
@@ -513,9 +522,12 @@ msgstr "Paieškos"
 msgid "results"
 msgstr "rezultatai"
 
-#: .\templates\search_events.html:19 .\templates\search_events_by_date.html:19
+#: .\templates\search_events.html:20 .\templates\search_events_by_date.html:20
 msgid "No match for"
 msgstr "Nepavyko rasti"
+
+#~ msgid "Logout"
+#~ msgstr "Atsijungti"
 
 #~ msgid "CHANGE"
 #~ msgstr "PAKEISTI"

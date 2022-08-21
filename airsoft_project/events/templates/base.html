@@ -29,6 +29,21 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto nice-text-nav">
           <li class="nav-item">
+            <form class='lang-select' action="{% url 'set_language' %}" method="post">
+              {% csrf_token %}
+              <input name="next" type="hidden" value="{{ redirect_to }}"/>
+                <select class="nav-link" style='background-color:transparent;border:none' name="language" onchange="this.form.submit()">
+                  {% get_current_language as LANGUAGE_CODE %}
+                  {% get_available_languages as LANGUAGES %}
+                  {% for lang in LANGUAGES %}
+                    <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %} selected="selected" {% endif %}>
+                      {{ lang.0 }}
+                    </option>
+                  {% endfor %}
+                </select>
+            </form>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'events_index' %}">{% trans "Home" %}</a>
           </li>
           <li class="nav-item">
@@ -47,11 +62,21 @@
               <a class="nav-link" href="{% url 'players' %}">{% trans "Players" %}</a>
             </li>
           {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}"><strong>{% trans "Logout" %}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'profile' %}">{{ user.get_username }}</strong></a>
+          <li class="nav-item dropdown show">
+            <a class="nav-link dropdown-toggle" href="#" role='button' id='dropdownMenuLink' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <strong>{{ user.get_username }}</strong>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="{% url 'profile' %}">{% trans "Profile" %}</a>
+              {% if user.profile.is_player == True %}
+                <a class="dropdown-item" href="{% url 'my_registered_events' %}">{% trans "My registered events" %}</a>
+                <a class="dropdown-item" href="{% url 'my_completed_events' %}">{% trans "My completed events" %}</a>
+              {% endif %}
+              {% if user.profile.is_organizer == True %}
+              <a class="dropdown-item" href="{% url 'organizer_events' %}">{% trans "My events" %}</a>
+              {% endif %}
+              <a class="dropdown-item" href="{% url 'logout' %}">{% trans "Log out" %}</a>
+            </div>
           </li>
           {% else %}
           <li class="nav-item">
@@ -61,21 +86,6 @@
             <a class="nav-link" href="{% url 'register'%}">{% trans "Register" %}</a>
           </li>
           {% endif %}
-          <li class="nav-item">
-            <form class='lang-select' action="{% url 'set_language' %}" method="post">
-              {% csrf_token %}
-              <input name="next" type="hidden" value="{{ redirect_to }}"/>
-                <select class="nav-link" style='background-color:transparent;border:none' name="language" onchange="this.form.submit()">
-                  {% get_current_language as LANGUAGE_CODE %}
-                  {% get_available_languages as LANGUAGES %}
-                  {% for lang in LANGUAGES %}
-                    <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %} selected="selected" {% endif %}>
-                      {{ lang.0 }}
-                    </option>
-                  {% endfor %}
-                </select>
-            </form>
-          </li>
         </ul>
       </div>
     </div>

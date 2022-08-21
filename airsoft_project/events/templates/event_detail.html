@@ -10,7 +10,11 @@
             {% if user.profile.player in event.registered_players.all %}
             <h4 class='secondary-font'> {% trans "You are registered to this event" %} </h4>
             {% else %}
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'register_to_event' event.id %}">{% trans "Register to event" %}</a>
+                {% if event.max_players > event.registered_players.count %}
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'register_to_event' event.id %}">{% trans "Register to event" %}</a>
+                {% else %}
+                    <h4 class='secondary-font'> {% trans "Maximum players reached" %} </h4>
+                {% endif %}
             {% endif %}
         {% endif %}
     {% endif %}
