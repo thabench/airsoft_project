@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load crispy_forms_tags %}
 {% block content %}
 
@@ -28,7 +29,7 @@
                         <img class="profile-picture" src="{{ user.profile.organizer.profile_picture.url }}">
 
                         <fieldset class="form-group">
-                            <legend class="border-bottom mb-4">Organizer info</legend>
+                            <legend class="border-bottom mb-4">{% trans "Organizer info" %}</legend>
                             {{ o_form|crispy }}
                         </fieldset>
 
@@ -41,27 +42,27 @@
                     <img class="profile-picture" src="{{ user.profile.player.picture.url }}">
                         
                     <fieldset class="form-group">
-                        <legend class="border-bottom mb-4">Player info</legend>
+                        <legend class="border-bottom mb-4">{% trans "Player info" %}</legend>
                         {{ p_form|crispy }}
                     </fieldset>
                     <div>
-                        <a class="btn btn-outline-secondary" href="{% url 'my_registered_events' %}">My registered events</a>
+                        <a class="btn btn-outline-secondary" href="{% url 'my_registered_events' %}">{% trans "My registered events" %}</a>
                     </div>
                     <div>
-                        <a class="btn btn-outline-secondary" href="{% url 'my_completed_events' %}">My participated events</a>
+                        <a class="btn btn-outline-secondary" href="{% url 'my_completed_events' %}">{% trans "My participated events" %}</a>
                     </div>
                 </div>
                 {% endif %}
             </div>
             <center>
                 <fieldset class="form-group">
-                    <legend class="border-bottom mb-4">User info</legend>
+                    <legend class="border-bottom mb-4">{% trans "User info" %}</legend>
                     <div style='padding-left:30%; padding-right:30%'>
                     {{ u_form|crispy }}
                     </div>
                 </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-secondary" type="submit">Update</button>
+                <button class="btn btn-outline-secondary" type="submit">{% trans "Update" %}</button>
             </div>
             </center>
         </form>

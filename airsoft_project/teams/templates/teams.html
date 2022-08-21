@@ -14,12 +14,12 @@
     {% if user.profile.is_player == True %}
         <div class='create-btn'><a class="btn btn-outline-info main-font" style='color:beige' href="{% url 'create_team' %}">{% trans "Create new team" %}</a></div>
     {% endif %}
-    <h1 class='secondary-font'>Team list</h1>
+    <h1 class='secondary-font'>{% trans "Team list" %}</h1>
 
     <center>
         <div>
             <form action="{% url 'search_teams' %}" method="get" >
-            <input name="query" class="search-bar secondary-font" type="text" placeholder="Search for teams">
+            <input name="query" class="search-bar secondary-font" type="text" placeholder="{% trans "Search for teams" %}">
             </form>
         </div>
     </center>
@@ -52,7 +52,7 @@
         {% endfor %}
     </div>
     {% else %}
-    <div> No teams yet </div>
+    <div> {% trans "No teams yet" %} </div>
     {% endif %}
     
     <br>

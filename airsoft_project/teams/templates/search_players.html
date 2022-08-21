@@ -1,25 +1,27 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
 
 <div class='indented main-font'>
   <center>
-    <h1>Search for "{{ query }}" results:</h1>
+    <h1>{% trans "Search for" %} "{{ query }}" {% trans "results" %}:</h1>
   </center>
   </br>
   {% if players %}
     {% for player in players %}
       <div class='search-results'>
         <div><a class='link' href="{% url 'player_detail' player.id %}">{{ player.n_name }}</a></div>
-        <div class='secondary-font'>{{player.team.name}} Team</div>
+        <div class='secondary-font'>{{player.team.name}} {% trans "Team" %}</div>
       </div>
     {% endfor %}
   {% else %}
-    <div>No match for {{ query }}</div>
+    <center>
+    <div>{% trans "No match for" %} {{ query }}</div>
+    </center>
   {% endif %}
   <hr>
   <center>
-    <a class='link'style='color:beige' href="{% url 'players' %}"><div style='font-size:20px'><strong>Player list</strong></div></a>
+    <a class='link'style='color:beige' href="{% url 'players' %}"><div style='font-size:20px'><strong>{% trans "Player list" %}</strong></div></a>
   </center>
 </div>
 

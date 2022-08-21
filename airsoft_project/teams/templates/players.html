@@ -3,12 +3,12 @@
 {% block content %}
 
 <div class='indented main-font'>
-    <h1 class='secondary-font'>Player list</h1>
+    <h1 class='secondary-font'>{% trans "Player list" %}</h1>
 
     <center>
         <div>
             <form action="{% url 'search_players' %}" method="get" >
-            <input name="query" class="search-bar secondary-font" type="text" placeholder="Search for players">
+            <input name="query" class="search-bar secondary-font" type="text" placeholder="{% trans "Search for players" %}">
             </form>
         </div>
     </center>
@@ -47,7 +47,7 @@
         {% endfor %}
     </div>
     {% else %}
-    <div> No players yet </div>
+    <div> {% trans "No players yet" %} </div>
     {% endif %}
     
     <br>

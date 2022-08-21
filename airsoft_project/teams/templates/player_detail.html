@@ -1,22 +1,23 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
     <div class='indented main-font'>
         <div><img class="profile-picture" src="{{ player.picture.url }}"></div>
         <h1 class='secondary-font'>{{ player.n_name }}</h1>
         <br>
-        <h2>Details:</h2>
-        <div>User: {{ player.profile.user }}</div>
-        <div>Hometown: {{ player.player_from }}</div>
-        <div>Date of birth: {{ player.date_of_birth|date:'Y-m-d' }}</div>
-        <div>Team: <a class='link' href="{% url 'team_detail' player.team.id %}"> {{ player.team }}</a></div>
+        <h2>{% trans "Details" %}:</h2>
+        <div>{% trans "User" %}: {{ player.profile.user }}</div>
+        <div>{% trans "Hometown" %}: {{ player.player_from }}</div>
+        <div>{% trans "Date of birth" %}: {{ player.date_of_birth|date:'Y-m-d' }}</div>
+        <div>{% trans "Team" %}: <a class='link' href="{% url 'team_detail' player.team.id %}"> {{ player.team }}</a></div>
         {% if player.team_leader == True %}
-            <div><strong>{{ player.n_name }}</strong> is the leader of {{ player.team }} team</div>
+            <div><strong>{{ player.n_name }}</strong> {% trans "is the leader of" %} {{ player.team }} {% trans "team" %}</div>
         {% endif %}
 
         <div>
             <br>
-            <h3 class='secondary-font'>Registered events:</h3>
+            <h3 class='secondary-font'>{% trans "Registered events" %}:</h3>
             {% for event in player.events.all %}
                 {% if event.status == 'a' %}
                     {{ event.name }}<br>
@@ -26,7 +27,7 @@
 
         <div>
             <br>
-            <h3 class='secondary-font'>Events Participated:</h3>
+            <h3 class='secondary-font'>{% trans "Events Participated" %}:</h3>
             {% for event in player.events.all %}
                 {% if event.status == 'i' %}
                     {{ event.name }}<br>
@@ -36,7 +37,7 @@
 
         <br>
         <br>
-        <a class='link'style='color:beige' href="{% url 'players' %}"><div style='font-size:20px'><strong>Player list</strong></div></a>
+        <a class='link'style='color:beige' href="{% url 'players' %}"><div style='font-size:20px'><strong>{% trans "Player list" %}</strong></div></a>
     </div>
 
 {% endblock %}

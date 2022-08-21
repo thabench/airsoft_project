@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-21 14:30+0300\n"
-"PO-Revision-Date: 2022-08-21 14:34+0300\n"
+"POT-Creation-Date: 2022-08-21 15:43+0300\n"
+"PO-Revision-Date: 2022-08-21 15:44+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -31,6 +31,10 @@ msgstr "Organizatoriaus pavadinimas"
 #: .\models.py:15
 msgid "New Organizer"
 msgstr "Naujas organizatorius"
+
+#: .\models.py:16
+msgid "Profile picture"
+msgstr "Profilio nuotrauka"
 
 #: .\models.py:17
 msgid "Address and contacts"

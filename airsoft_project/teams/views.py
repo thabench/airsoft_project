@@ -14,11 +14,6 @@ from django.db.models import Q
 
 # Create your views here.
 
-def index(request):
-    
-    return render(request, 'index.html')
-
-
 class PlayerListView(generic.ListView):
     model = Player
     context_object_name = 'players'
@@ -116,21 +111,21 @@ def profile(request):
             p_form.save()
             o_form.save()
             
-            messages.success(request, f"Profile updated")
+            messages.success(request, _(f"Profile updated"))
             return redirect('profile')
     elif request.method == "POST" and current_user.profile.is_organizer == True:
         o_form = OrganizerUpdateForm(request.POST, request.FILES, instance=request.user.profile.organizer)
         if u_form.is_valid() and o_form.is_valid():
             u_form.save()
             o_form.save()
-            messages.success(request, f"Profile updated")
+            messages.success(request, _(f"Profile updated"))
             return redirect('profile')
     elif request.method == "POST" and current_user.profile.is_player == True:
         p_form = PlayerUpdateForm(request.POST, request.FILES, instance=request.user.profile.player)
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
-            messages.success(request, f"Profile updated")
+            messages.success(request, _(f"Profile updated"))
             return redirect('profile')    
     else:
         

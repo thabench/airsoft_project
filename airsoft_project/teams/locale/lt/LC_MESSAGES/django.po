@@ -1,0 +1,354 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-21 15:40+0300\n"
+"PO-Revision-Date: 2022-08-21 15:41+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#: .\models.py:20
+msgid "Unique team ID"
+msgstr "Unikalus komandos ID"
+
+#: .\models.py:21
+msgid "Name of the Team"
+msgstr "Komandos pavadinimas"
+
+#: .\models.py:22 .\templates\create_team_form.html:20
+#: .\templates\team_detail.html:24 .\templates\team_update_form.html:16
+msgid "Contacts"
+msgstr "Kontaktai"
+
+#: .\models.py:32 .\models.py:54 .\templates\player_detail.html:13
+#: .\templates\search_players.html:14
+msgid "Team"
+msgstr "Komanda"
+
+#: .\models.py:33
+msgid "Teams"
+msgstr "Komandos"
+
+#: .\models.py:52
+msgid "Nickname of the player"
+msgstr "Žaidėjo slapyvardis"
+
+#: .\models.py:52
+msgid "New Player"
+msgstr "Naujas žaidėjas"
+
+#: .\models.py:53
+msgid "Picture"
+msgstr "Nuotrauka"
+
+#: .\models.py:55
+msgid "Events"
+msgstr "Renginiai"
+
+#: .\models.py:56
+msgid "Town where player is from"
+msgstr "Miestas, iš kurio yra žaidėjas"
+
+#: .\models.py:57 .\templates\player_detail.html:12
+msgid "Date of birth"
+msgstr "Gimimo data"
+
+#: .\models.py:61 .\templates\search_teams.html:15
+msgid "Player"
+msgstr "Žaidėjas"
+
+#: .\models.py:62 .\templates\search_teams.html:17
+msgid "Players"
+msgstr "Žaidėjai"
+
+#: .\templates\create_team_form.html:7
+msgid "Create new Team"
+msgstr "Nauja komanda"
+
+#: .\templates\create_team_form.html:9
+msgid "!!! BY CREATING NEW TEAM YOU WILL LEAVE YOUR CURRENT TEAM !!!"
+msgstr "!!! SUKURDAMI NAUJĄ KOMANDĄ IŠEISITE IŠ DABARTINĖS !!!"
+
+#: .\templates\create_team_form.html:16 .\templates\team_update_form.html:12
+msgid "Team name"
+msgstr "Komandos pavadinimas"
+
+#: .\templates\create_team_form.html:22 .\templates\team_update_form.html:18
+msgid "Address, phone, email, etc."
+msgstr "Adresas, telefono nr. ir t.t."
+
+#: .\templates\create_team_form.html:25 .\templates\team_update_form.html:21
+msgid "Team emblem"
+msgstr "Komandos emblema"
+
+#: .\templates\create_team_form.html:28
+msgid "Create"
+msgstr "Sukurti"
+
+#: .\templates\delete_team.html:13
+msgid "Delete team"
+msgstr "Naikinti komandą"
+
+#: .\templates\delete_team.html:14
+msgid "Are you sure you want to delete"
+msgstr "Ar tikrai norite naikinti"
+
+#: .\templates\delete_team.html:14 .\templates\join_team.html:18
+#: .\templates\leave_team.html:14 .\templates\player_detail.html:15
+msgid "team"
+msgstr "komandą"
+
+#: .\templates\delete_team.html:17
+msgid "Yes, delete"
+msgstr "Taip, naikinti"
+
+#: .\templates\delete_team.html:18 .\templates\join_team.html:22
+#: .\templates\leave_team.html:18
+msgid "Cancel"
+msgstr "Atšaukti"
+
+#: .\templates\join_team.html:13
+msgid "!!! BY JOINING THIS TEAM YOU WILL LEAVE YOUR CURRENT TEAM !!!"
+msgstr "!!! PRISIJUNGDAMI PRIE ŠIOS KOMANDOS IŠEISITE IŠ DABARTINĖS !!!"
+
+#: .\templates\join_team.html:17 .\templates\team_detail.html:18
+msgid "Join team"
+msgstr "Prisijungti prie komandos"
+
+#: .\templates\join_team.html:18
+msgid "Are you sure you want join"
+msgstr "Ar tikrai norite prisijungti"
+
+#: .\templates\join_team.html:21
+msgid "Yes, join"
+msgstr "Taip, prisijungti"
+
+#: .\templates\leave_team.html:13 .\templates\team_detail.html:15
+msgid "Leave team"
+msgstr "Išeiti iš komandos"
+
+#: .\templates\leave_team.html:14
+msgid "Are you sure you want leave"
+msgstr "Ar tikrai norite išeiti"
+
+#: .\templates\leave_team.html:17
+msgid "Yes, leave"
+msgstr "Taip, išeiti"
+
+#: .\templates\player_detail.html:9
+msgid "Details"
+msgstr "Detalės"
+
+#: .\templates\player_detail.html:10
+msgid "User"
+msgstr "Vartotojas"
+
+#: .\templates\player_detail.html:11
+msgid "Hometown"
+msgstr "Miestas"
+
+#: .\templates\player_detail.html:15
+msgid "is the leader of"
+msgstr "administruoja"
+
+#: .\templates\player_detail.html:20
+msgid "Registered events"
+msgstr "Būsimi renginiai"
+
+#: .\templates\player_detail.html:30
+msgid "Events Participated"
+msgstr "Praėję renginiai"
+
+#: .\templates\player_detail.html:40 .\templates\players.html:6
+#: .\templates\search_players.html:24
+msgid "Player list"
+msgstr "Žaidėjai"
+
+#: .\templates\players.html:11
+msgid "Search for players"
+msgstr "Žaidėjų paieška"
+
+#: .\templates\players.html:50
+msgid "No players yet"
+msgstr "Žaidėjų nėra"
+
+#: .\templates\profile.html:31
+msgid "Organizer info"
+msgstr "Organizatorius duomenys"
+
+#: .\templates\profile.html:44
+msgid "Player info"
+msgstr "Žaidėjo duomenys"
+
+#: .\templates\profile.html:48
+msgid "My registered events"
+msgstr "Mano būsimi renginiai"
+
+#: .\templates\profile.html:51
+msgid "My participated events"
+msgstr "Mano praėję renginiai"
+
+#: .\templates\profile.html:58
+msgid "User info"
+msgstr "Vartotojo duomenys"
+
+#: .\templates\profile.html:64 .\templates\team_update_form.html:24
+msgid "Update"
+msgstr "Atnaujinti"
+
+#: .\templates\register.html:6
+msgid "Registration"
+msgstr "Registracija"
+
+#: .\templates\register.html:17
+msgid "User name"
+msgstr "Vartotojo vardas"
+
+#: .\templates\register.html:19
+msgid "up to 150 symbols"
+msgstr "iki 150 simbolių"
+
+#: .\templates\register.html:22
+msgid "Email"
+msgstr "El. paštas"
+
+#: .\templates\register.html:24
+msgid "Required for password change"
+msgstr "Reikalingas slaptažodžio keitimui"
+
+#: .\templates\register.html:27
+msgid "Password"
+msgstr "Slaptažodis"
+
+#: .\templates\register.html:30 .\views.py:70
+msgid ""
+"Password must be at least 8 symbols and it must have at least one capital "
+"letter and number"
+msgstr ""
+"Slaptažodis turi būti sudarytas bent iš 8 simbolių, turėti bent vieną "
+"didžiają raidę ir skaičių"
+
+#: .\templates\register.html:34
+msgid "Confirm password"
+msgstr "Patvirtinti slaptažodį"
+
+#: .\templates\register.html:38
+msgid "Register as organizer"
+msgstr "Registruotis kaip organizatoriui"
+
+#: .\templates\register.html:42
+msgid "Register as player"
+msgstr "Registruotis kaip žaidėjui"
+
+#: .\templates\register.html:45
+msgid "Register"
+msgstr "Registruotis"
+
+#: .\templates\register.html:47
+msgid "Already a member"
+msgstr "Esate narys"
+
+#: .\templates\register.html:47
+msgid "Log in"
+msgstr "Prisijungti"
+
+#: .\templates\search_players.html:7 .\templates\search_teams.html:7
+msgid "Search for"
+msgstr "Paieškos"
+
+#: .\templates\search_players.html:7 .\templates\search_teams.html:7
+msgid "results"
+msgstr "rezultatai"
+
+#: .\templates\search_players.html:19 .\templates\search_teams.html:23
+msgid "No match for"
+msgstr "Nepavyko rasti"
+
+#: .\templates\search_teams.html:28 .\templates\team_detail.html:40
+#: .\templates\teams.html:17
+msgid "Team list"
+msgstr "Komandos"
+
+#: .\templates\team_detail.html:12
+msgid "Update team"
+msgstr "Atnaujinti"
+
+#: .\templates\team_detail.html:13
+msgid "Delete"
+msgstr "Naikinti"
+
+#: .\templates\team_detail.html:27
+msgid "Team players"
+msgstr "Komandos žaidėjai"
+
+#: .\templates\team_detail.html:35
+msgid "No players in team yet"
+msgstr "Komandoje žaidėjų nėra"
+
+#: .\templates\team_detail.html:43
+msgid ""
+"If you would like to become team leader you must contact your team leader or "
+"administration at infoairsoftevents@gmail.com"
+msgstr ""
+"Jei norite tapti komandos lyderiu, turite susisiekti su savo komandos vadovu "
+"arba administracija adresu infoairsoftevents@gmail.com"
+
+#: .\templates\team_update_form.html:7
+msgid "Update Team"
+msgstr "Atnaujinti"
+
+#: .\templates\teams.html:15
+msgid "Create new team"
+msgstr "Nauja komanda"
+
+#: .\templates\teams.html:22
+msgid "Search for teams"
+msgstr "Komandų paieška"
+
+#: .\templates\teams.html:55
+msgid "No teams yet"
+msgstr "Komandų nėra"
+
+#: .\views.py:74
+#, python-brace-format
+msgid "User name {username} is already taken!"
+msgstr "Vartotojo vardas {username} jau užimtas!"
+
+#: .\views.py:78
+#, python-brace-format
+msgid "Email {email} already exists!"
+msgstr "El. paštas {email} jau egzistuoja!"
+
+#: .\views.py:94
+msgid "Registration successful!"
+msgstr "Registracija sėkminga!"
+
+#: .\views.py:97
+msgid "Passwords did not match!"
+msgstr "Slaptažodžiai nesutapo!"
+
+#: .\views.py:114 .\views.py:121 .\views.py:128
+msgid "Profile updated"
+msgstr "Profilis atnaujintas"
+
+#: .\views.py:177
+#, python-brace-format
+msgid "Team name {name} is already taken!"
+msgstr "Komandos pavadinimas {name} jau užimtas!"
+
+#: .\views.py:185
+msgid "Team created!"
+msgstr "Komanda sukurta!"

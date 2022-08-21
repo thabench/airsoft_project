@@ -10,16 +10,16 @@
         {% csrf_token %}
 
         {% if user.profile.player.team.name != 'No Team' %}
-        <h4 class='alert alert-danger'>!!! BY JOINING THIS TEAM YOU WILL LEAVE YOUR CURRENT TEAM !!!</h4>
+        <h4 class='alert alert-danger'>{% trans "!!! BY JOINING THIS TEAM YOU WILL LEAVE YOUR CURRENT TEAM !!!" %}</h4>
         {% endif %}
 
         <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Join team</legend>
-            <h2>Are you sure you want join {{ team.name }} team?</h2>
+            <legend class="border-bottom mb-4">{% trans "Join team" %}</legend>
+            <h2>{% trans "Are you sure you want join" %} {{ team.name }} {% trans "team" %}?</h2>
         </fieldset>
         <div class="form-group">
-            <button class="btn btn-outline-danger" type="submit">Yes, join</button>
-            <a class="btn btn-outline-secondary" href="{% url 'team_detail' pk %}">Cancel</a>
+            <button class="btn btn-outline-danger" type="submit">{% trans "Yes, join" %}</button>
+            <a class="btn btn-outline-secondary" href="{% url 'team_detail' pk %}">{% trans "Cancel" %}</a>
         </div>
     </form>
     </div>

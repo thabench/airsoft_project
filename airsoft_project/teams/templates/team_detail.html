@@ -9,22 +9,22 @@
     {% if user.profile.is_player == True %}
         {% if user.profile.player.team == team %}
             {% if user.profile.player.team_leader == True %}
-                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'update_team' team.pk %}">Update team</a>
-                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'delete_team' team.pk %}">Delete</a>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'update_team' team.pk %}">{% trans "Update team" %}</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'delete_team' team.pk %}">{% trans "Delete" %}</a>
             {% endif %}
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'leave_team' team.pk %}">Leave team</a>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'leave_team' team.pk %}">{% trans "Leave team" %}</a>
         {% endif %}
         {% if user.profile.player.team != team %}
-        <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'join_team' team.pk %}">Join team</a>
+        <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'join_team' team.pk %}">{% trans "Join team" %}</a>
         {% endif %}
     {% endif %}
     <br>
     <br>
-    {{ user.profile.player.team.name }}
-    <h2>Contacts:</h2>
+    
+    <h2>{% trans "Contacts" %}:</h2>
     <div>{{ team.contacts }}</div>
     <hr>
-    <h3>Team players:</h3>
+    <h3>{% trans "Team players" %}:</h3>
     <div>
 
     {% if team.players.all %}
@@ -32,15 +32,15 @@
         <a class='link' href="{% url 'player_detail' i.pk %}"><div>{{ i.n_name }}</div></a>
         {% endfor %}
     {% else %}
-        <div>No players in team yet</div>
+        <div>{% trans "No players in team yet" %}</div>
     {% endif %}
     <br>
     </div>
     
-    <a class='link' href="{% url 'teams' %}"><div style='font-size:20px'><strong>Team list</strong></div></a>
+    <a class='link' href="{% url 'teams' %}"><div style='font-size:20px'><strong>{% trans "Team list" %}</strong></div></a>
 
     {% if user.profile.player and user.profile.player.team_leader != True %}
-        <div class='secondary-font'><small>{% trans "If you would like to become team leader you must contact your team leader of administration at infoairsoftevents@gmail.com" %}</small></div>
+        <div class='secondary-font'><small>{% trans "If you would like to become team leader you must contact your team leader or administration at infoairsoftevents@gmail.com" %}</small></div>
     {% endif %}
 
 </div>

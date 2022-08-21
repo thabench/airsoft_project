@@ -17,9 +17,9 @@ class Profile(models.Model):
 
 
 class Team(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unique player ID')
-    name = models.CharField('Name of the Team', max_length=150)
-    contacts = models.CharField('contacts', max_length=150)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text=_('Unique team ID'))
+    name = models.CharField(_('Name of the Team'), max_length=150)
+    contacts = models.CharField(_('Contacts'), max_length=150)
     emblem = models.ImageField(default="team_default.png", upload_to="team_pics/")
     
     @classmethod
@@ -48,14 +48,13 @@ class Team(models.Model):
     
     
 class Player(models.Model):
-    profile = models.OneToOneField('Profile', related_name='player',on_delete=models.CASCADE, null=True, blank=True)
-    n_name = models.CharField('Nickname of the player', max_length=150, default="New Player")
-    picture = models.ImageField(default="default.png", upload_to="profile_pics/")
-    team = models.ForeignKey('Team', related_name='players', on_delete=models.SET_NULL, null=True, default=Team.get_default_pk)
-    events = models.ManyToManyField("events.Event", related_name='registered_players', blank=True)
-    games_played = models.IntegerField(null=True, blank=True, default=0)
-    player_from = models.CharField('Town where player is from', max_length=150)
-    date_of_birth = models.DateField(null=True, blank=True)
+    profile = models.OneToOneField('Profile', related_name='player', on_delete=models.CASCADE, null=True, blank=True)
+    n_name = models.CharField(_('Nickname of the player'), max_length=150, default=_("New Player"))
+    picture = models.ImageField(_('Picture'), default="default.png", upload_to="profile_pics/")
+    team = models.ForeignKey('Team', related_name='players', help_text=_('Team'), on_delete=models.SET_NULL, null=True, default=Team.get_default_pk)
+    events = models.ManyToManyField("events.Event", help_text=_('Events'), related_name='registered_players', blank=True)
+    player_from = models.CharField(_('Town where player is from'), max_length=150)
+    date_of_birth = models.DateField(_('Date of birth'), null=True, blank=True)
     team_leader = models.BooleanField(default=False)
         
     class Meta:
