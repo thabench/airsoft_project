@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, get_list_or_404
 from django.contrib.auth.decorators import login_required
 from django.views import generic
 from events.models import Organizer, Event, Field
@@ -190,16 +190,6 @@ class OrganizerFieldUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.
         print('form invalid')
         return super().form_invalid(form)
     
-    def test_func(self):
-        field = self.get_object()
-        return self.request.user == field.created_by.profile.user
-    
-    
-class OrganizerFieldDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
-    model = Field
-    success_url = "/events/fields/"
-    template_name = 'organizer_delete_field.html'
-
     def test_func(self):
         field = self.get_object()
         return self.request.user == field.created_by.profile.user

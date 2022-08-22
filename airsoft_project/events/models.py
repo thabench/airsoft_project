@@ -32,6 +32,39 @@ class Organizer(models.Model):
             output_size = (200, 200)
             img.thumbnail(output_size)
             img.save(self.profile_picture.path)
+      
+    
+class Field(models.Model):
+    name = models.CharField(_('Name of the game field'),  max_length=150)
+    location_long = models.FloatField(_('Location longitude'), max_length=50, null=True)
+    location_lat = models.FloatField(_('Location latitude'), max_length=50, null=True)
+    description = HTMLField(null=True, blank=True)
+    field_map = models.ImageField(default="default_map.png", upload_to="maps/")
+    created_by = models.ForeignKey("Organizer", help_text=_("Organizer"), related_name='field_organizers', on_delete=models.SET_NULL, null=True, blank=True)
+    
+    class Meta:
+        verbose_name = _("Field")
+        verbose_name_plural = _("Fields")
+
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse("field_detail", kwargs={"pk": self.pk})
+    
+    @property
+    def get_api_key(self):
+        from airsoft_project.settings import GOOGLE_MAPS_API_KEY as api_key
+        return api_key
+    
+    @classmethod
+    def get_default_field_pk(cls):
+        field, created = cls.objects.get_or_create(
+            name='No Field', defaults=dict(location_long=54.686, 
+                                           location_lat=25.284,
+                                           description='-',
+                                           field_map='default_map.png'))
+        return field.pk
     
     
 class Event(models.Model):
@@ -39,7 +72,7 @@ class Event(models.Model):
     date = models.DateField(_('Date of event'), null=True, blank=True)
     time = models.TimeField(_('Time of event'), null=True, blank=True, help_text=_('i.e.: 12:00 PM'))
     organizer = models.ForeignKey("Organizer", help_text=_("Organizer"), related_name='event_organizers', on_delete=models.SET_NULL, null=True)
-    field = models.ForeignKey('Field', help_text=_("Field"), on_delete=models.SET_NULL, null=True)
+    field = models.ForeignKey('Field', help_text=_("Field"), related_name='field_event', default=Field.get_default_field_pk, on_delete=models.SET_NULL, null=True)
     description = HTMLField(help_text=_("Field"), null=True)
     price = models.FloatField(_("Price"))
     max_players = models.IntegerField(_("Maximum player number"))
@@ -74,27 +107,3 @@ class Event(models.Model):
 
     def get_absolute_url(self):
         return reverse("event_detail", kwargs={"pk": self.pk})
-    
-    
-class Field(models.Model):
-    name = models.CharField(_('Name of the game field'),  max_length=150)
-    location_long = models.FloatField(_('Location longitude'), max_length=50, null=True)
-    location_lat = models.FloatField(_('Location latitude'), max_length=50, null=True)
-    description = HTMLField(null=True, blank=True)
-    field_map = models.ImageField(default="default_map.png", upload_to="maps/")
-    created_by = models.ForeignKey("Organizer", help_text=_("Organizer"), related_name='field_organizers', on_delete=models.SET_NULL, null=True, blank=True)
-    
-    class Meta:
-        verbose_name = _("Field")
-        verbose_name_plural = _("Fields")
-
-    def __str__(self):
-        return self.name
-    
-    def get_absolute_url(self):
-        return reverse("field_detail", kwargs={"pk": self.pk})
-    
-    @property
-    def get_api_key(self):
-        from airsoft_project.settings import GOOGLE_MAPS_API_KEY as api_key
-        return api_key

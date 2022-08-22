@@ -25,7 +25,6 @@ urlpatterns = [
     path('my_fields/<int:pk>', views.OrganizerFieldDetailView.as_view(), name='organizer_field'),
     path('my_fields/new', views.OrganizerFieldCreateView.as_view(), name='create_field'),
     path('my_fields/<int:pk>/update', views.OrganizerFieldUpdateView.as_view(), name='update_field'),
-    path('my_fields/<int:pk>/delete', views.OrganizerFieldDeleteView.as_view(), name='delete_field'),
     path('search_events/', views.search_events, name='search_events'),
     path('search_events_by_date/', views.search_by_date, name='search_events_by_date'),
     path('i18n/', include('django.conf.urls.i18n')),
