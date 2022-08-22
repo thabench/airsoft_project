@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load l10n %}
 {% block content %}
 
 <div class='indented main-font'>
@@ -17,7 +18,7 @@
     <iframe width="600" height="450" 
         style="border:0" loading="lazy" 
         allowfullscreen 
-        src="https://www.google.com/maps/embed/v1/view?zoom=17&center={{ field.location_long }},{{ field.location_lat }}&maptype=satellite&key={{ field.get_api_key }}">
+        src="https://www.google.com/maps/embed/v1/view?zoom=17&center={% localize off %}{{ field.location_long }},{{ field.location_lat }}{% endlocalize %}&maptype=satellite&key={{ field.get_api_key }}">
     </iframe> 
     
 </div>
